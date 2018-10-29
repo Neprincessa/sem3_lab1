@@ -356,6 +356,18 @@ void ArraySequence<TElement>::Shell(TElement* arr, int size) {
 		//d = d / 2;
 		d = chooseStep(d,size);
 	}
+
+	//safe step = 1 if user didn't input 1
+	d = 1;
+	for (int i = 0; i<size - d; i++) {
+		int j = i;
+		while (j >= 0 && arr[j]>arr[j + d]) {
+			count = arr[j];
+			arr[j] = arr[j + d];
+			arr[j + d] = count;
+			j--;
+		}
+	}
 }
 
 

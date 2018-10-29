@@ -148,8 +148,8 @@ int chooseforFirstIteration_ShellSort(int size) {
 	while (!checkDataType(p))
 		cin >> s;
 	result = atoi(s);
-	while (result > size) {
-		cout << "Input the element less than " << size << endl;
+	while (result > size || result < 0) {
+		cout << "Input the positive number less than " << size << endl;
 		cin >> s;
 		while (!checkDataType(p))
 			cin >> s;
