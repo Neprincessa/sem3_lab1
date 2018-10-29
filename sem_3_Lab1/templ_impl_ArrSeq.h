@@ -333,4 +333,30 @@ void ArraySequence<TElement>::MergeSort() {
 	}
 }
 
+
+template <typename TElement>
+void ArraySequence<TElement>::Shell(TElement* arr, int size) {
+	int count;
+	int d = size;
+	//d = d / 2;
+	//d = chooseStep(1,size);
+	d = chooseforFirstIteration_ShellSort(size);
+
+	//добавить если первое вхождение то флаг о, там фиксированное значение иначе на вход подается значение d
+	while (d>0) {
+		for (int i = 0; i<size - d; i++) {
+			int j = i;
+			while (j >= 0 && arr[j]>arr[j + d]) {
+				count = arr[j];
+				arr[j] = arr[j + d];
+				arr[j + d] = count;
+				j--;
+			}
+		}
+		//d = d / 2;
+		d = chooseStep(d,size);
+	}
+}
+
+
 #endif // !_ARR__T__

@@ -123,4 +123,9 @@ template <typename TElement>
 void Sequence<TElement>::MergeSort(/*TElement *curArr, int lenD*/) {
 	int lenD = 0;
 }
+
+template <typename TElement>
+void Sequence<TElement>::Shell(TElement* arr, int size) {
+	cout << "This is shell sort" << endl;
+}
 #endif // !_TEML__I__

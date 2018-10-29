@@ -121,3 +121,41 @@ int typeOfSequence() {
 	return curSeq;
 }
 
+int chooseStep(int limit, int size) {
+	cout << "Input the step of shell sort less than " << limit << endl;
+	char s[256];
+	char *p = s;
+	cin >> s;
+	while (!checkDataType(p))
+		cin >> s;
+	int result = atoi(s);
+	while (result >= limit) {
+		cout << "Input the element less than " << limit <<endl;
+		cin >> s;
+		while (!checkDataType(p))
+			cin >> s;
+		result = atoi(s);
+	}
+	return result;
+}
+int chooseforFirstIteration_ShellSort(int size) {
+	int result;
+
+	cout << "Input the step of shell sort less than " << size << endl;
+	char s[256];
+	char *p = s;
+	cin >> s;
+	while (!checkDataType(p))
+		cin >> s;
+	result = atoi(s);
+	while (result > size) {
+		cout << "Input the element less than " << size << endl;
+		cin >> s;
+		while (!checkDataType(p))
+			cin >> s;
+		result = atoi(s);
+	}
+	
+	return result;
+
+}

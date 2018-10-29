@@ -85,10 +85,10 @@ int main() {
 	cout << "\n";
 	//cout << "Insert" << endl;
 	//test.InsertSort();
-	cout << "Merge" << endl;
-	//test.MergeSort(test.getArr(), test.getLength());
-	//test.merge_1(test.getArr(), test.getLength());
-	test.MergeSort();
+	/*cout << "Merge" << endl;
+	test.MergeSort();*/
+	cout << "Shell sort" << endl;
+	test.Shell(test.getArr(), test.getLength());
 	test.Display();
 
 

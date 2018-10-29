@@ -11,8 +11,8 @@ void IntArrSeq();
 void DoubleArrSeq();
 void IntListSeq();
 void DoubleListSeq();
-
-
+int chooseStep(int,int);
+int chooseforFirstIteration_ShellSort(int);
 //void TestAppend();
 //void TestPrepend();
 //void TestGetFirst();

@@ -47,6 +47,7 @@ public:
 	//--------------------------Sorts------------------------------------//
 	virtual void InsertSort();
 	virtual void MergeSort(/*TElement *curArr, int lenD*/);
+	virtual void Shell(TElement*, int/*, int*/);
 };
 
 
@@ -92,6 +93,7 @@ public:
 	void InsertSort();
 	void MergeSort(/*TElement *curArr, int lenD*/);
 	//void merge(int* merged, int lenD, int L[], int lenL, int R[], int lenR);
+	void Shell(TElement*, int);
 
 };
 
@@ -121,6 +123,7 @@ public:
 	void Remove(TElement);
 	ListSequence<TElement> GetSubSequence(int, int);
 	int chooseFunction();
+	
 	void Display();
 
 	//--------------------------------------Test------------------------------//
