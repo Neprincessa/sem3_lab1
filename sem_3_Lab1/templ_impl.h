@@ -128,4 +128,11 @@ template <typename TElement>
 void Sequence<TElement>::Shell(TElement* arr, int size) {
 	cout << "This is shell sort" << endl;
 }
+
+template <typename TElement>
+TElement* Sequence<TElement>::getArr() {
+	TElement *arr = new TElement[18];
+	return arr;
+}
+
 #endif // !_TEML__I__

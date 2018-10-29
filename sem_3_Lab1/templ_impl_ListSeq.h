@@ -526,4 +526,63 @@ void ListSequence<TElement>::frontBackSplit(Node<TElement>* theHead, Node<TEleme
 	}
 }
 
+
+template <typename TElement>
+TElement* ListSequence<TElement>::getArr() {
+	
+	TElement *result = new TElement[amount];
+	Node<TElement> *tmp = head;
+	int i = 0;
+	while (tmp) {
+		result[i] = tmp->data;
+		tmp = tmp->Next;
+		i++;
+	}
+
+	return result;
+}
+
+template <typename TElement>
+void ListSequence<TElement>::Shell(TElement *arr, int size) {
+	int count;
+	int d = size;
+	//d = d / 2;
+	//d = chooseStep(1,size);
+	d = chooseforFirstIteration_ShellSort(size);
+
+	//добавить если первое вхождение то флаг о, там фиксированное значение иначе на вход подается значение d
+	while (d>0) {
+		for (int i = 0; i<size - d; i++) {
+			int j = i;
+			int a = arr[j];
+			int b = arr[j + d];
+			while (j >= 0 && arr[j]>arr[j + d]) {
+				count = arr[j];
+				arr[j] = arr[j + d];
+				arr[j + d] = count;
+				j--;
+			}
+		}
+		//d = d / 2;
+		d = chooseStep(d, size);
+	}
+
+	d = 1;
+	for (int i = 0; i<size - d; i++) {
+		int j = i;
+		int a = arr[j];
+		int b = arr[j + d];
+		while (j >= 0 && arr[j]>arr[j + d]) {
+			count = arr[j];
+			arr[j] = arr[j + d];
+			arr[j + d] = count;
+			j--;
+		}
+	}
+	
+	head = tail = NULL;
+	for (int k = 0; k < size; k++)
+		Append(arr[k]);
+
+}
 #endif // !_LST__T__

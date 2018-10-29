@@ -88,7 +88,7 @@ int main() {
 	/*cout << "Merge" << endl;
 	test.MergeSort();*/
 	cout << "Shell sort" << endl;
-	test.Shell(test.getArr(), test.getLength());
+	//test.Shell(test.getArr(), test.getLength());
 	test.Display();
 
 
@@ -163,8 +163,10 @@ int main() {
 
 	//cout << "Insert sort" << endl;
 	//testList.InsertSort();
-	cout << "Merge sort" << endl;
-	testList.MergeSort();
+	/*cout << "Merge sort" << endl;
+	testList.MergeSort();*/
+	cout << "Shell sort" << endl;
+	testList.Shell(test.getArr(), test.getLength());
 	testList.Display();
 
 	//if (curSeq == 1) {

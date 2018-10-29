@@ -28,6 +28,7 @@ public:
 	virtual void InsertAt(int index, TElement item); //insert element in i position
 	virtual void Remove(TElement item);
 	virtual void Display();
+	virtual TElement* getArr();
 	virtual int chooseFunction(); // what to do with func
 
 								  //virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
@@ -123,7 +124,7 @@ public:
 	void Remove(TElement);
 	ListSequence<TElement> GetSubSequence(int, int);
 	int chooseFunction();
-	
+	TElement* getArr();
 	void Display();
 
 	//--------------------------------------Test------------------------------//
@@ -139,6 +140,7 @@ public:
 	//----------------------------Sorts-------------------//
 	void InsertSort();
 	void MergeSort();
+	void Shell(TElement*, int);
 private:
 	void sort(Node<TElement>* &theHead);//формирование списка для слияния 
 	Node<TElement>* sortedMerge(Node<TElement>* a, Node<TElement>* b); //слияние двух остортированных списков в один отсортированный
