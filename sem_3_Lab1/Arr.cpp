@@ -342,6 +342,20 @@ void IntArrSeq() {
 			test.TestGet(23, -1);
 			break;
 		}
+		case 40: {
+			int amountOfElements;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amountOfElements = atoi(s);
+			int tmpEl;
+			for (int i = 0; i < amountOfElements; i++) {
+				srand(10000);
+				tmpEl = rand();
+				myArr.Append(tmpEl);
+			}
+			break;
+		}
 		default:
 			break;
 		}
@@ -613,18 +627,32 @@ void DoubleArrSeq() {
 			cout << "\n";
 			break;
 		}
-				 /*case 30: {
-				 ArraySequence<int> test;
-				 test.TestLength(0);
-				 test.Append(23);
-				 test.TestLength(1);
-				 test.TestGetFirst(23);
-				 test.TestGetLast(23);
-				 test.TestGet(23, 0);
-				 test.TestGet(23, 1);
-				 test.TestGet(23, -1);
-				 break;
-				 }*/
+		case 30: {
+			ArraySequence<int> test;
+			test.TestLength(0);
+			test.Append(23);
+			test.TestLength(1);
+			test.TestGetFirst(23);
+			test.TestGetLast(23);
+			test.TestGet(23, 0);
+			test.TestGet(23, 1);
+			test.TestGet(23, -1);
+			break;
+		}
+		case 40: {
+			int amountOfElements;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amountOfElements = atoi(s);
+			double tmpEl;
+			for (int i = 0; i < amountOfElements; i++) {
+				srand(10000);
+				tmpEl = rand();
+				myArr.Append(tmpEl);
+			}
+			break;
+		}
 		default:
 			break;
 		}

@@ -83,6 +83,7 @@ int whatFunc() {
 	cout << "If you want to remove element, press 9" << endl;
 	cout << "If you want tot get a sub sequence, press 10" << endl;
 	cout << "If you want to see the whole sequence, press 20" << endl;
+	cout << "If you want to set the sequence with random numbers, press 40" << endl;
 
 	char s[256];
 	char *p = s;

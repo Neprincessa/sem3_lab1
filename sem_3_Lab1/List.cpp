@@ -334,6 +334,20 @@ void IntListSeq() {
 			cout << "\n";
 			break;
 		}
+		case 40: {
+			int amountOfElements;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amountOfElements = atoi(s);
+			int tmpEl;
+			for (int i = 0; i < amountOfElements; i++) {
+				srand(10000);
+				tmpEl = rand();
+				myList.Append(tmpEl);
+			}
+			break;
+		}
 		default:
 			break;
 		}
@@ -606,6 +620,23 @@ void DoubleListSeq() {
 		case 20: {
 			myList.Display();
 			cout << "\n";
+			break;
+		}
+		case 40: {
+			int amountOfElements;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amountOfElements = atoi(s);
+			double tmpEl;
+			for (int i = 0; i < amountOfElements; i++) {
+				srand(10000);
+				tmpEl = rand();
+				myList.Append(tmpEl);
+			}
+			break;
+		}
+		default:
 			break;
 		}
 		default:
