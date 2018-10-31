@@ -585,4 +585,21 @@ void ListSequence<TElement>::Shell(TElement *arr, int size) {
 		Append(arr[k]);
 
 }
+
+template <typename TElement>
+void ListSequence<TElement>::TestInsertSort(TElement *ideal) {
+	Node<TElement> *tmp = head;
+	int flag = 0;
+	int i = 0;
+	while (tmp) {
+		if (tmp->data == ideal[i])
+			flag++;
+		i++;
+		tmp = tmp->Next;
+	}
+	if (flag == amount)
+		cout << "Insert sort works correctly" << endl;
+	else
+		cout << "Insert sort works incorrectly" << endl;
+}
 #endif // !_LST__T__

@@ -379,8 +379,8 @@ void ArraySequence<TElement>::TestInsertSort(TElement *ideal) {
 			flag++;
 
 	if (flag == 9)
-		cout << "Insert sort works correct" << endl;
+		cout << "Insert sort works correctly" << endl;
 	else
-		cout << "Insert sort works incorrect" << endl;
+		cout << "Insert sort works incorrectly" << endl;
 }
 #endif // !_ARR__T__

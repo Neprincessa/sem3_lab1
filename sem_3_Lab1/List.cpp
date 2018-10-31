@@ -334,6 +334,34 @@ void IntListSeq() {
 			cout << "\n";
 			break;
 		}
+		case 30: {
+			ListSequence<int> testList;
+			// {85,36,2,0,-89,4,-7,777,15}
+			testList.Append(85);
+			testList.Append(36);
+			testList.Append(2);
+			testList.Append(0);
+			testList.Append(-89);
+			testList.Append(4);
+			testList.Append(-7);
+			testList.Append(777);
+			testList.Append(15);
+
+			testList.InsertSort();
+			int *arr = new int[9];
+			arr[0] = -89;
+			arr[1] = -7;
+			arr[2] = 0;
+			arr[3] = 2;
+			arr[4] = 4;
+			arr[5] = 15;
+			arr[6] = 36;
+			arr[7] = 85;
+			arr[8] = 777;
+
+			testList.TestInsertSort(arr);
+			break;
+		}
 		case 40: {
 			int amountOfElements;
 			cin >> s;
@@ -620,6 +648,34 @@ void DoubleListSeq() {
 		case 20: {
 			myList.Display();
 			cout << "\n";
+			break;
+		}
+		case 30: {
+			ListSequence<double> testList;
+			// {85,36,2,0,-89,4,-7,777,15}
+			testList.Append(85.5);
+			testList.Append(36.6);
+			testList.Append(2.2);
+			testList.Append(0);
+			testList.Append(-89.3);
+			testList.Append(4.7);
+			testList.Append(-7.3);
+			testList.Append(777.1);
+			testList.Append(15.9);
+
+			testList.InsertSort();
+			double *arr = new double[9];
+			arr[0] = -89.3;
+			arr[1] = -7.3;
+			arr[2] = 0;
+			arr[3] = 2.2;
+			arr[4] = 4.7;
+			arr[5] = 15.9;
+			arr[6] = 36.6;
+			arr[7] = 85.5;
+			arr[8] = 777.1;
+
+			testList.TestInsertSort(arr);
 			break;
 		}
 		case 40: {
