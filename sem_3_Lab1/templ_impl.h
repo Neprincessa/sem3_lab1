@@ -135,4 +135,9 @@ TElement* Sequence<TElement>::getArr() {
 	return arr;
 }
 
+template <typename TElement>
+void Sequence<TElement>::TestInsertSort(TElement *a) {
+	cout << "This is test of insert sort" << endl;
+}
+
 #endif // !_TEML__I__

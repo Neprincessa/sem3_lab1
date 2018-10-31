@@ -263,8 +263,8 @@ void ArraySequence<TElement>::TestRemove(int *arr, TElement elemem) {
 template <typename TElement>
 void ArraySequence<TElement>::InsertSort() {
 
-	int temp, // временная переменная для хранения значения элемента сортируемого массива
-		item; // индекс предыдущего элемента
+	TElement temp; // временная переменная для хранения значения элемента сортируемого массива
+	int	item; // индекс предыдущего элемента
 	for (int counter = 1; counter < currentAmount; counter++)
 	{
 		temp = currentArr[counter]; // инициализируем временную переменную текущим значением элемента массива
@@ -304,7 +304,7 @@ void ArraySequence<TElement>::MergeSort() {
 			{ // пока не дошли до конца пути
 			  // заполняем следующий элемент формируемой последовательности
 			  // меньшим из двух просматриваемых
-				if (currentArr[i] <currentArr[j])
+				if (currentArr[i] /*<*/>currentArr[j])
 				{
 					c[k] = currentArr[i];
 					i++; k++;
@@ -370,5 +370,17 @@ void ArraySequence<TElement>::Shell(TElement* arr, int size) {
 	}
 }
 
+template <typename TElement>
+void ArraySequence<TElement>::TestInsertSort(TElement *ideal) {
+	
+	int flag = 0;
+	for (int i = 0; i < currentAmount; i++)
+		if (currentArr[i] == ideal[i])
+			flag++;
 
+	if (flag == 9)
+		cout << "Insert sort works correct" << endl;
+	else
+		cout << "Insert sort works incorrect" << endl;
+}
 #endif // !_ARR__T__

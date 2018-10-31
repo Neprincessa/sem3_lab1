@@ -332,14 +332,31 @@ void IntArrSeq() {
 		}
 		case 30: {
 			ArraySequence<int> test;
-			test.TestLength(0);
-			test.Append(23);
-			test.TestLength(1);
-			test.TestGetFirst(23);
-			test.TestGetLast(23);
-			test.TestGet(23, 0);
-			test.TestGet(23, 1);
-			test.TestGet(23, -1);
+			// {85,36,2,0,-89,4,-7,777,15}
+			test.Append(85);
+			test.Append(36);
+			test.Append(2);
+			test.Append(0);
+			test.Append(-89);
+			test.Append(4);
+			test.Append(-7);
+			test.Append(777);
+			test.Append(15);
+
+			test.InsertSort();
+			int *arr = new int[9];
+			arr[0] = -89;
+			arr[1] = -7;
+			arr[2] = 0;
+			arr[3] = 2;
+			arr[4] = 4;
+			arr[5] = 15;
+			arr[6] = 36;
+			arr[7] = 85;
+			arr[8] = 777;
+
+			test.TestInsertSort(arr);
+			
 			break;
 		}
 		case 40: {
@@ -359,7 +376,7 @@ void IntArrSeq() {
 		default:
 			break;
 		}
-		definiteFunc = 0;
+		//definiteFunc = 0;
 	}
 }
 
@@ -628,15 +645,40 @@ void DoubleArrSeq() {
 			break;
 		}
 		case 30: {
-			ArraySequence<int> test;
-			test.TestLength(0);
+			ArraySequence<double> test;
+			// {85,36,2,0,-89,4,-7,777,15}
+			test.Append(85.5);
+			test.Append(36.6);
+			test.Append(2.2);
+			test.Append(0);
+			test.Append(-89.3);
+			test.Append(4.7);
+			test.Append(-7.3);
+			test.Append(777.1);
+			test.Append(15.9);
+
+			test.InsertSort();
+			double *arr = new double[9];
+			arr[0] = -89.3;
+			arr[1] = -7.3;
+			arr[2] = 0;
+			arr[3] = 2.2;
+			arr[4] = 4.7;
+			arr[5] = 15.9;
+			arr[6] = 36.6;
+			arr[7] = 85.5;
+			arr[8] = 777.1;
+
+			test.TestInsertSort(arr);
+			//test.Append
+		/*	test.TestLength(0);
 			test.Append(23);
 			test.TestLength(1);
 			test.TestGetFirst(23);
 			test.TestGetLast(23);
 			test.TestGet(23, 0);
 			test.TestGet(23, 1);
-			test.TestGet(23, -1);
+			test.TestGet(23, -1);*/
 			break;
 		}
 		case 40: {
@@ -656,7 +698,7 @@ void DoubleArrSeq() {
 		default:
 			break;
 		}
-		definiteFunc = 0;
+		//definiteFunc = 0;
 	}
 }
 

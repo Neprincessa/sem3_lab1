@@ -639,9 +639,6 @@ void DoubleListSeq() {
 		default:
 			break;
 		}
-		default:
-			break;
-		}
 	}
 }
 

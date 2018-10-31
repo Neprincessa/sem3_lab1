@@ -16,7 +16,7 @@ int main() {
 //
 //	//int wholeAmountOfElements = setAmount();
 //
-////	int typeData;
+	int typeData;
 //
 //	int *arr = new int[4];
 //	arr[0] = 53;
@@ -24,8 +24,8 @@ int main() {
 //	arr[1] = 23;
 //	arr[2] = 43;
 //
-//	//int curSeq = typeOfSequence();	
-//	//typeData = typeOfDataOfSeq();
+	int curSeq = typeOfSequence();	
+	typeData = typeOfDataOfSeq();
 //
 //	cout << "TESTS for ArraySequence" << endl;
 //	cout << "\n";
@@ -61,20 +61,20 @@ int main() {
 //	//test.Display();
 //	test.GetSubSequence(1, 1).TestGetSub(1, 23);
 //	cout << "\n";
-//	test.TestInsert(arr, 1, 63);
-//	cout << "\n";
-//	test.TestLength(4);
-//	cout << "\n";
-//	test.TestInsert(arr, -1, 33);
-//	cout << "\n";
-//	test.TestGet(23, 2);
-//	cout << "\n";
-//	test.Display();
-//
-//	test.TestRemove(arr, 43);
-//	test.TestRemove(arr, 888881);
-//
-//
+////	test.TestInsert(arr, 1, 63);
+////	cout << "\n";
+////	test.TestLength(4);
+////	cout << "\n";
+////	test.TestInsert(arr, -1, 33);
+////	cout << "\n";
+////	test.TestGet(23, 2);
+////	cout << "\n";
+////	test.Display();
+////
+////	test.TestRemove(arr, 43);
+////	test.TestRemove(arr, 888881);
+////
+////
 //	cout << "Okey" << endl;
 //	test.Display();
 //	test.Append(454);
@@ -83,12 +83,12 @@ int main() {
 //	test.Append(-99);
 //	test.Display();
 //	cout << "\n";
-//	//cout << "Insert" << endl;
-//	//test.InsertSort();
-//	/*cout << "Merge" << endl;
-//	test.MergeSort();*/
-//	cout << "Shell sort" << endl;
-//	//test.Shell(test.getArr(), test.getLength());
+////	//cout << "Insert" << endl;
+////	//test.InsertSort();
+//	cout << "Merge" << endl;
+//	test.MergeSort();
+////	cout << "Shell sort" << endl;
+////	//test.Shell(test.getArr(), test.getLength());
 //	test.Display();
 //
 //
@@ -169,18 +169,18 @@ int main() {
 	testList.Shell(test.getArr(), test.getLength());
 	testList.Display();*/
 
-	//if (curSeq == 1) {
-	//	if (typeData == 1)
-	//		IntArrSeq();
-	//	if (typeData == 2)
-	//		DoubleArrSeq();
-	//}
-	//if (curSeq == 2) {	
-	//	if (typeData == 1)
-	//		IntListSeq();
-	//	if (typeData == 2)
-	//		DoubleListSeq();
-	//}
+	if (curSeq == 1) {
+		if (typeData == 1)
+			IntArrSeq();
+		if (typeData == 2)
+			DoubleArrSeq();
+	}
+	if (curSeq == 2) {	
+		if (typeData == 1)
+			IntListSeq();
+		if (typeData == 2)
+			DoubleListSeq();
+	}
 
 
 
