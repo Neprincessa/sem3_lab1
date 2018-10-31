@@ -397,19 +397,11 @@ void IntArrSeq() {
 
 			for (int i = 0; i < amount; i++) {
 				cout << "Fill in the element" << endl;
-				cin >> s;
-				if (mode == 1) {
-					while (!checkDataType(p))
-						cin >> s;
-					element = atoi(s);
+				cin >> element;
+				if (mode == 1) 
 					myArr.Append(element);
-				}
-				if (mode == 2) {
-					while (!checkDataType(p))
-						cin >> s;
-					element = atoi(s);
+				if (mode == 2) 
 					myArr.Prepend(element);
-				}
 			}
 			break;
 		}

@@ -376,6 +376,46 @@ void IntListSeq() {
 			}
 			break;
 		}
+		case 50: {
+			int amount;
+			cout << "Fill in the amount of elements" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amount = atoi(s);
+
+			cout << "Fill in 1 of you want to append and 2 if you want to prepand" << endl;
+			int mode;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			mode = atoi(s);
+			while (mode < 1 || mode > 2) {
+				cout << "Fill in 1 or 2" << endl;
+				cin >> s;
+				while (!checkDataType(p))
+					cin >> s;
+				mode = atoi(s);
+			}
+
+			for (int i = 0; i < amount; i++) {
+				cout << "Fill in the element" << endl;
+				cin >> s;
+				if (mode == 1) {
+					while (!checkDataType(p))
+						cin >> s;
+					element = atoi(s);
+					myList.Append(element);
+				}
+				if (mode == 2) {
+					while (!checkDataType(p))
+						cin >> s;
+					element = atoi(s);
+					myList.Prepend(element);
+				}
+			}
+			break;
+		}
 		default:
 			break;
 		}
@@ -689,6 +729,38 @@ void DoubleListSeq() {
 				srand(10000);
 				tmpEl = rand();
 				myList.Append(tmpEl);
+			}
+			break;
+		}
+		case 50: {
+			int amount;
+			cout << "Fill in the amount of elements" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amount = atoi(s);
+
+			cout << "Fill in 1 of you want to append and 2 if you want to prepand" << endl;
+			int mode;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			mode = atoi(s);
+			while (mode < 1 || mode > 2) {
+				cout << "Fill in 1 or 2" << endl;
+				cin >> s;
+				while (!checkDataType(p))
+					cin >> s;
+				mode = atoi(s);
+			}
+			
+			for (int i = 0; i < amount; i++) {
+				cout << "Fill in the element" << endl;
+				cin >> element;
+				if (mode == 1)
+					myList.Append(element);
+				if (mode == 2)
+					myList.Prepend(element);
 			}
 			break;
 		}

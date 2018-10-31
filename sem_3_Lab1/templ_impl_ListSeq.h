@@ -59,7 +59,7 @@ void ListSequence<TElement>::Display() {
 	if (head == NULL)
 		cout << "Sequence is empty" << endl;
 	else {
-		while (temp != NULL)
+		while (temp /*!= NULL*/)
 		{
 			i++;
 			cout << i << ") ";
