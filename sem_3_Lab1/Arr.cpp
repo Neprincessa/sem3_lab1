@@ -362,6 +362,7 @@ void IntArrSeq() {
 		}
 		case 40: {
 			int amountOfElements;
+			cout << "Fill in the amount of elements" << endl;
 			cin >> s;
 			while (!checkDataType(p))
 				cin >> s;
@@ -717,6 +718,7 @@ void DoubleArrSeq() {
 		}
 		case 40: {
 			int amountOfElements;
+			cout << "Fill in the amount of elements" << endl;
 			cin >> s;
 			while (!checkDataType(p))
 				cin >> s;

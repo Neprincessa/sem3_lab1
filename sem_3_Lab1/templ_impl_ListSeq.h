@@ -440,11 +440,11 @@ Node<TElement>* ListSequence<TElement>::sortedMerge(Node<TElement>* a, Node<TEle
 	}
 
 	// First element in list, a, is less than the first element in b
-	if (a->data <= b->data) {
+	if (a->data >=/*<=*/ b->data) {
 		headOfMerged = a;
 
 		while (b != nullptr) {
-			if (a->data <= b->data) {
+			if (a->data /*>=*/<= b->data) {
 				if (a->Next == nullptr) {
 					a->Next = b;
 					b->Prev = a;
@@ -467,7 +467,7 @@ Node<TElement>* ListSequence<TElement>::sortedMerge(Node<TElement>* a, Node<TEle
 		headOfMerged = b;
 
 		while (a != nullptr) {
-			if (b->data <= a->data) {
+			if (b->data /*<=*/>= a->data) {
 				if (b->Next == nullptr) {
 					b->Next = a;
 					a->Prev = b;
@@ -601,5 +601,25 @@ void ListSequence<TElement>::TestInsertSort(TElement *ideal) {
 		cout << "Insert sort works correctly" << endl;
 	else
 		cout << "Insert sort works incorrectly" << endl;
+}
+
+
+template <typename TElement>
+void ListSequence<TElement>::TestMergeSort(TElement *ideal) {
+	Node<TElement> *tmp = head;
+	int flag = 0;
+	int i = amount-1;
+	while (tmp) {
+		TElement a = tmp->data;
+		TElement b = ideal[i];
+		if (tmp->data == ideal[i])
+			flag++;
+		i--;
+		tmp = tmp->Next;
+	}
+	if (flag == amount)
+		cout << "The merge sort works correctly" << endl;
+	else
+		cout << "The merge sort works incorrectly" << endl;
 }
 #endif // !_LST__T__

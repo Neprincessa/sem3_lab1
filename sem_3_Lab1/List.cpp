@@ -360,10 +360,14 @@ void IntListSeq() {
 			arr[8] = 777;
 
 			testList.TestInsertSort(arr);
+
+			testList.MergeSort();
+			testList.TestMergeSort(arr);
 			break;
 		}
 		case 40: {
 			int amountOfElements;
+			cout << "Fill in the amount of elements" << endl;
 			cin >> s;
 			while (!checkDataType(p))
 				cin >> s;
@@ -716,10 +720,15 @@ void DoubleListSeq() {
 			arr[8] = 777.1;
 
 			testList.TestInsertSort(arr);
+			testList.TestMergeSort(arr);
+
+			testList.MergeSort();
+			testList.TestMergeSort(arr);
 			break;
 		}
 		case 40: {
 			int amountOfElements;
+			cout << "Fill in the amount of elements" << endl;
 			cin >> s;
 			while (!checkDataType(p))
 				cin >> s;

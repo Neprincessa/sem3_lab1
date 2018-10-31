@@ -140,6 +140,7 @@ public:
 	void TestRemove(int*, TElement);
 	void TestGetSub(int, TElement);
 	void TestInsertSort(TElement*);
+	void TestMergeSort(TElement*);
 	//----------------------------Sorts-------------------//
 	void InsertSort();
 	void MergeSort();
