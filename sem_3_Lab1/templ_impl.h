@@ -140,4 +140,9 @@ void Sequence<TElement>::TestInsertSort(TElement *a) {
 	cout << "This is test of insert sort" << endl;
 }
 
+
+template <typename TElement>
+void Sequence<TElement>::TestMergeSort(TElement *ideal) {
+	cout << "This is test of merge sort" << endl;
+}
 #endif // !_TEML__I__

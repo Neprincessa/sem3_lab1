@@ -356,6 +356,7 @@ void IntArrSeq() {
 			arr[8] = 777;
 
 			test.TestInsertSort(arr);
+			test.TestMergeSort(arr);
 			
 			break;
 		}
@@ -702,6 +703,7 @@ void DoubleArrSeq() {
 			arr[8] = 777.1;
 
 			test.TestInsertSort(arr);
+			test.TestMergeSort(arr);
 			//test.Append
 		/*	test.TestLength(0);
 			test.Append(23);

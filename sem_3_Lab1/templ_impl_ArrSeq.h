@@ -383,4 +383,18 @@ void ArraySequence<TElement>::TestInsertSort(TElement *ideal) {
 	else
 		cout << "Insert sort works incorrectly" << endl;
 }
+
+template <typename TElement>
+void ArraySequence<TElement>::TestMergeSort(TElement *ideal) {
+	
+	int flag = 0;
+	for (int i = currentAmount-1; i >= 0; i--)
+		if (ideal[i] == currentArr[i])
+			flag++;
+		
+	if (flag == currentAmount)
+		cout << "The merge sort works correctly" << endl;
+	else
+		cout << "The merge sort works incorrectly" << endl;
+}
 #endif // !_ARR__T__

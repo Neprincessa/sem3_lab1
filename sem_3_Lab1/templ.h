@@ -43,6 +43,7 @@ public:
 	virtual void TestRemove(int*, TElement);
 	virtual void TestLength(int);
 	virtual void TestInsertSort(TElement*);
+	virtual void TestMergeSort(TElement*);
 	//virtual void mergeSort();
 
 
@@ -91,6 +92,7 @@ public:
 	void TestRemove(int*, TElement);
 	void TestGetSub(int, TElement);
 	void TestInsertSort(TElement*);
+	void TestMergeSort(TElement*);
 	//------------------------------Sorts---------------------//
 	void InsertSort();
 	void MergeSort(/*TElement *curArr, int lenD*/);
