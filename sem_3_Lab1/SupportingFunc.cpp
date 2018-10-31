@@ -85,6 +85,7 @@ int whatFunc() {
 	cout << "If you want to see the whole sequence, press 20" << endl;
 	cout << "If you want to switch TEST mode, press 30" << endl;
 	cout << "If you want to set the sequence with random numbers, press 40" << endl;
+	cout << "If you want to add current amount of elements, press 50" << endl;
 
 	char s[256];
 	char *p = s;
@@ -92,8 +93,8 @@ int whatFunc() {
 	while (!checkDataType(p))
 		cin >> s;
 	typeOfFunction = atoi(s);
-	while (typeOfFunction < 0 || typeOfFunction > 10 && typeOfFunction != 20 && typeOfFunction != 30 && typeOfFunction != 40) {
-		cout << "Fill in the number from 0 to 10, 20,30 or 40" << endl;
+	while (typeOfFunction < 0 || typeOfFunction > 10 && typeOfFunction != 20 && typeOfFunction != 30 && typeOfFunction != 40 && typeOfFunction != 50) {
+		cout << "Fill in the number from 0 to 10, 20,30, 40 or 50" << endl;
 		cin >> s;
 		while (!checkDataType(p))
 			cin >> s;
