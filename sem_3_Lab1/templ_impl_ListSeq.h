@@ -457,7 +457,8 @@ Node<TElement>* ListSequence<TElement>::sortedMerge(Node<TElement>* a, Node<TEle
 				Node<TElement>* toAdd = b;
 				b = b->Next;
 				toAdd->Prev = a->Prev;
-				a->Prev->Next = toAdd;
+				if (a->Prev!=NULL)
+					a->Prev->Next = toAdd;
 				toAdd->Next = a;
 				a->Prev = toAdd;
 			}

@@ -4,7 +4,10 @@
 #include "templ.h"
 #include "fstream"
 #include <time.h>
+#include <ctime>
+#include <random>
 
+#define N 10000
 Reason Exception::getReason(int typeFunc, int start, int end, int len) const throw() {
 	//typeFunc = 1 - get, 2 - insert, 3 - getSub
 	//hoe in func
@@ -67,6 +70,12 @@ void IntArrSeq() {
 
 	char s[256];
 	char *p = s;
+
+	//srand/*seed*/(time(NULL));
+
+	//std::mt19937 e1; 
+	//e1.seed(time(0)); 
+	//std::cout << e1() << std::endl;
 
 	ArraySequence<int> myArr;
 
@@ -376,11 +385,17 @@ void IntArrSeq() {
 			while (!checkDataType(p))
 				cin >> s;
 			amountOfElements = atoi(s);
-			int tmpEl;
+			//int tmpEl;
 			for (int i = 0; i < amountOfElements; i++) {
-				srand(time(NULL));
-				tmpEl = rand();
-				myArr.Append(tmpEl);
+				srand(/*time(NULL)*/i*5631);
+				/*std::mt19937 e1;
+				e1.seed(time(0));*/
+				std::random_device rd;
+				std::mt19937_64 gen(rd());
+			//	std::cout << e1() << std::endl;
+				int tmpEl = rand()%10000+1;
+				myArr.Append(tmpEl/*gen()*/);
+
 			}
 			break;
 		}
@@ -422,13 +437,15 @@ void IntArrSeq() {
 			ArraySequence<int> seq1;
 			ArraySequence<int> seq2;
 			ArraySequence<int> seq3;
-			for (int i = 0; i < 1000; i++) {
-				srand(time(NULL));
-				tmpEl = rand();
+			for (int i = 0; i < N; i++) {
+				srand(/*time(NULL)*/i*5631);
+				tmpEl = rand() % 10000+1;
 				seq1.Append(tmpEl);
 				seq2.Append(tmpEl);
 				seq3.Append(tmpEl);
 			}
+
+			//seq1.Display();
 
 			time_t start1, end1;
 			time(&start1);
@@ -788,8 +805,8 @@ void DoubleArrSeq() {
 			amountOfElements = atoi(s);
 			double tmpEl;
 			for (int i = 0; i < amountOfElements; i++) {
-				srand(10000);
-				tmpEl = rand();
+				srand(/*time(NULL)*/i * 5631);
+				tmpEl = rand()%10000+1;
 				myArr.Append(tmpEl);
 			}
 			break;
@@ -840,13 +857,15 @@ void DoubleArrSeq() {
 			ArraySequence<double> seq1;
 			ArraySequence<double> seq2;
 			ArraySequence<double> seq3;
-			for (int i = 0; i < 10000; i++) {
-				srand(time(NULL));
-				tmpEl = rand();
+			for (int i = 0; i < N; i++) {
+				srand(/*time(NULL)*/i * 5631);
+				tmpEl = rand()%1000;
 				seq1.Append(tmpEl);
 				seq2.Append(tmpEl);
 				seq3.Append(tmpEl);
 			}
+
+			//seq1.Display();
 
 			time_t start1, end1;
 			time(&start1);

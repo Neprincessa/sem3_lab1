@@ -291,7 +291,7 @@ void ArraySequence<TElement>::MergeSort() {
 		temp.Append(currentArr[i]);
 
 	temp.MergeSort();
-	for (int i = 0; i < currentAmount; i++) 
+	for (int i = 0; i < currentAmount+1; i++) 
 		currentArr[i] = temp.Get(i+1);
 }
 
