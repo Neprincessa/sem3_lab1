@@ -360,9 +360,15 @@ void IntListSeq() {
 			arr[8] = 777;
 
 			testList.TestInsertSort(arr);
+			testList.Display();
 
 			testList.MergeSort();
 			testList.TestMergeSort(arr);
+			testList.Display();
+
+			testList.Shell(testList.getArr(), testList.getLength());
+			testList.Display();
+			testList.TestShellSort(arr);
 			break;
 		}
 		case 40: {
@@ -720,9 +726,15 @@ void DoubleListSeq() {
 			arr[8] = 777.1;
 
 			testList.TestInsertSort(arr);
+			testList.Display();
 
 			testList.MergeSort();
 			testList.TestMergeSort(arr);
+			testList.Display();
+
+			testList.Shell(testList.getArr(), testList.getLength());
+			testList.Display();
+			testList.TestShellSort(arr);
 			break;
 		}
 		case 40: {

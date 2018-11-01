@@ -621,4 +621,22 @@ void ListSequence<TElement>::TestMergeSort(TElement *ideal) {
 	else
 		cout << "The merge sort works incorrectly" << endl;
 }
+
+template <typename TElement>
+void ListSequence<TElement>::TestShellSort(TElement *ideal) {
+	Node<TElement> *tmp = head;
+	int flag = 0;
+	int i =0;
+
+	while (tmp) {
+		if (tmp->data == ideal[i])
+			flag++;
+		i++;
+		tmp = tmp->Next;
+	}
+	if (flag == 9)
+		cout << "The shell sort works correctly" << endl;
+	else
+		cout << "The shell sort works incorrectly" << endl;
+}
 #endif // !_LST__T__
