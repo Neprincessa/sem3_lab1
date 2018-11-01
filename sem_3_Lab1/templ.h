@@ -59,7 +59,7 @@ template <typename TElement>
 class ArraySequence : public Sequence<TElement> {
 	int currentAmount;
 	int isEmpty;
-	TElement *currentArr = new TElement[1000000]; //choose the type - for user interfce
+	TElement *currentArr = new TElement[1000]; //choose the type - for user interfce
 public:
 	ArraySequence() {
 		currentAmount = 0;

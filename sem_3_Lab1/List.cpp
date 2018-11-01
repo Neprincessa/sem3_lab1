@@ -2,7 +2,7 @@
 #include "Header.h"
 #include "templ.h"
 #include "ExceptionsForList.h"
-
+#include <time.h>
 TypeError CurrentError::getReason(int typeFunc, int start, int end, int len) const throw() {
 	//typeFunc = 1 - get, 2 - insert, 3 - getSub
 	//hoe in func
@@ -380,7 +380,7 @@ void IntListSeq() {
 			amountOfElements = atoi(s);
 			int tmpEl;
 			for (int i = 0; i < amountOfElements; i++) {
-				srand(10000);
+				srand(time(NULL));
 				tmpEl = rand();
 				myList.Append(tmpEl);
 			}
@@ -746,7 +746,7 @@ void DoubleListSeq() {
 			amountOfElements = atoi(s);
 			double tmpEl;
 			for (int i = 0; i < amountOfElements; i++) {
-				srand(10000);
+				srand(time(NULL));
 				tmpEl = rand();
 				myList.Append(tmpEl);
 			}
