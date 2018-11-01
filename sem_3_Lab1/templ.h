@@ -44,6 +44,7 @@ public:
 	virtual void TestLength(int);
 	virtual void TestInsertSort(TElement*);
 	virtual void TestMergeSort(TElement*);
+	virtual void TestShellSort(TElement*);
 	//virtual void mergeSort();
 
 
@@ -93,6 +94,7 @@ public:
 	void TestGetSub(int, TElement);
 	void TestInsertSort(TElement*);
 	void TestMergeSort(TElement*);
+	void TestShellSort(TElement*);
 	//------------------------------Sorts---------------------//
 	void InsertSort();
 	void MergeSort(/*TElement *curArr, int lenD*/);
@@ -129,7 +131,6 @@ public:
 	int chooseFunction();
 	TElement* getArr();
 	void Display();
-
 	//--------------------------------------Test------------------------------//
 	void TestAppend(TElement a, int);
 	void TestGetFirst(TElement);

@@ -285,52 +285,14 @@ TElement* ArraySequence<TElement>:: getArr() {
 
 template <typename TElement>
 void ArraySequence<TElement>::MergeSort() {
-	int mid = currentAmount / 2; // находим середину сортируемой последовательности
-	if (currentAmount % 2 == 1)
-		mid++;
-	int h = 1; // шаг
-			   // выделяем память под формируемую последовательность
-	int *c = new int[currentAmount];
-	int step;
-	while (h <currentAmount)
-	{
-		step = h;
-		int i = 0;   // индекс первого пути
-		int j = mid; // индекс второго пути
-		int k = 0;   // индекс элемента в результирующей последовательности
-		while (step <= mid)
-		{
-			while ((i < step) && (j < currentAmount) && (j < (mid + step)))
-			{ // пока не дошли до конца пути
-			  // заполняем следующий элемент формируемой последовательности
-			  // меньшим из двух просматриваемых
-				if (currentArr[i] /*<*/>currentArr[j])
-				{
-					c[k] = currentArr[i];
-					i++; k++;
-				}
-				else {
-					c[k] = currentArr[j];
-					j++; k++;
-				}
-			}
-			while (i < step)
-			{ // переписываем оставшиеся элементы первого пути (если второй кончился раньше)
-				c[k] =currentArr[i];
-				i++; k++;
-			}
-			while ((j < (mid + step)) && (j <currentAmount))
-			{  // переписываем оставшиеся элементы второго пути (если первый кончился раньше)
-				c[k] = currentArr[j];
-				j++; k++;
-			}
-			step = step + h; // переходим к следующему этапу
-		}
-		h = h * 2;
-		// Переносим упорядоченную последовательность (промежуточный вариант) в исходный массив
-		for (i = 0; i <currentAmount; i++)
-			currentArr[i] = c[i];
-	}
+	
+	ListSequence<TElement> temp;
+	for (int i = 0; i < this->currentAmount; i++) 
+		temp.Append(currentArr[i]);
+
+	temp.MergeSort();
+	for (int i = 0; i < currentAmount; i++) 
+		currentArr[i] = temp.Get(i+1);
 }
 
 
@@ -388,13 +350,35 @@ template <typename TElement>
 void ArraySequence<TElement>::TestMergeSort(TElement *ideal) {
 	
 	int flag = 0;
-	for (int i = currentAmount-1; i >= 0; i--)
-		if (ideal[i] == currentArr[i])
+	int j = 0;
+	for (int i = currentAmount - 1; i >= 0; i--) {
+		TElement a = ideal[i];
+		TElement b = currentArr[j];
+		if (ideal[i] == currentArr[j])
 			flag++;
+		j++;
+	}
+		
 		
 	if (flag == currentAmount)
 		cout << "The merge sort works correctly" << endl;
 	else
 		cout << "The merge sort works incorrectly" << endl;
+}
+
+template <typename TElement>
+void ArraySequence<TElement>::TestShellSort(TElement *ideal) {
+	int flag = 0;
+	for (int i = 0; i < this->currentAmount; i++) {
+		TElement a = currentArr[i];
+		TElement b = ideal[i];
+		if (this->currentArr[i] == ideal[i])
+			flag++;
+	}
+		
+	if (flag == this->currentAmount)
+		cout << "The shell sort works correctly" << endl;
+	else
+		cout << "The shell sort works incorrectly" << endl;
 }
 #endif // !_ARR__T__

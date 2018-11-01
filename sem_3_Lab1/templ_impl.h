@@ -145,4 +145,9 @@ template <typename TElement>
 void Sequence<TElement>::TestMergeSort(TElement *ideal) {
 	cout << "This is test of merge sort" << endl;
 }
+
+template <typename TElement>
+void Sequence<TElement>::TestShellSort(TElement*) {
+	cout << "This is test for shell sort" << endl;
+}
 #endif // !_TEML__I__

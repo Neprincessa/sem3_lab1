@@ -720,7 +720,6 @@ void DoubleListSeq() {
 			arr[8] = 777.1;
 
 			testList.TestInsertSort(arr);
-			testList.TestMergeSort(arr);
 
 			testList.MergeSort();
 			testList.TestMergeSort(arr);

@@ -356,7 +356,14 @@ void IntArrSeq() {
 			arr[8] = 777;
 
 			test.TestInsertSort(arr);
+			test.Display();
+			test.MergeSort();
+			test.Display();
 			test.TestMergeSort(arr);
+
+			test.Shell(test.getArr(), test.getLength());
+			test.Display();
+			test.TestShellSort(arr);
 			
 			break;
 		}
@@ -704,7 +711,15 @@ void DoubleArrSeq() {
 			arr[8] = 777.1;
 
 			test.TestInsertSort(arr);
+			test.Display();
+
+			test.MergeSort();
 			test.TestMergeSort(arr);
+			test.Display();
+
+			test.Shell(test.getArr(), test.getLength());
+			test.Display();
+			test.TestShellSort(arr);
 			//test.Append
 		/*	test.TestLength(0);
 			test.Append(23);

@@ -127,7 +127,7 @@ TElement ListSequence<TElement>::Get(int index) {
 	int i = 1;
 
 	//to main!!!!!!!!!1
-	if (index<1 || index > amount) {
+	/*if (index<1 || index > amount) {
 		cout << "Fill in the index from 1 to ";
 		cout << amount << " ";
 		cin >> s;
@@ -142,7 +142,7 @@ TElement ListSequence<TElement>::Get(int index) {
 				cin >> s;
 			index = atoi(s);
 		}
-	}
+	}*/
 
 	if (getIsEmpty() != 1) {
 
@@ -160,9 +160,9 @@ TElement ListSequence<TElement>::Get(int index) {
 		}
 
 		if (flag == 1) {
-			cout << "\n";
-			cout << "The " << index << " element is: ";
-			cout << result << endl;
+			//cout << "\n";
+		//	cout << "The " << index << " element is: ";
+		//	cout << result << endl;
 			return result;
 		}
 
@@ -425,6 +425,7 @@ void ListSequence<TElement>::sort(Node<TElement>* &theHead) {
 //*/
 //
 
+
 template <typename TElement>
 Node<TElement>* ListSequence<TElement>::sortedMerge(Node<TElement>* a, Node<TElement>* b)
 {
@@ -610,8 +611,6 @@ void ListSequence<TElement>::TestMergeSort(TElement *ideal) {
 	int flag = 0;
 	int i = amount-1;
 	while (tmp) {
-		TElement a = tmp->data;
-		TElement b = ideal[i];
 		if (tmp->data == ideal[i])
 			flag++;
 		i--;
