@@ -834,6 +834,52 @@ void DoubleArrSeq() {
 			}
 			break;
 		}
+		case 60: {
+			int amountOfElements;
+			int tmpEl;
+			ArraySequence<double> seq1;
+			ArraySequence<double> seq2;
+			ArraySequence<double> seq3;
+			for (int i = 0; i < 10000; i++) {
+				srand(time(NULL));
+				tmpEl = rand();
+				seq1.Append(tmpEl);
+				seq2.Append(tmpEl);
+				seq3.Append(tmpEl);
+			}
+
+			time_t start1, end1;
+			time(&start1);
+			seq1.InsertSort();
+			time(&end1);
+			
+			time_t start2, end2;
+			time(&start2);
+			seq2.MergeSort();
+			time(&end2);
+
+			time_t start3, end3;
+			time(&start3);
+			seq3.Shell(seq3.getArr(), seq3.getLength());
+			time(&end3);
+
+			time_t res1, res2, res3;
+			res1 = end1 - start1;
+			res2 = end2 - start2;
+			res3 = end3 - start3;
+
+			if (res1 < res2)
+				if (res1 < res3)
+					cout << "Insert sort is better" << endl;
+				else
+					cout << "Shell is better" << endl;
+			else
+				if (res2 < res3)
+					cout << "Merge is better" << endl;
+				else
+					cout << "Shell is better" << endl;
+			break;
+		}
 		default:
 			break;
 		}
