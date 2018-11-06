@@ -457,32 +457,27 @@ void IntListSeq() {
 			while (!checkDataType(p))
 				cin >> s;
 			amount = atoi(s);
-			while (amount != 0) {
 				for (int i = 0; i <amount; i++) {
 					srand(/*time(NULL)*/i * 5631);
 					tmpEl = rand();
 					seq1.Append(tmpEl);
-				//	seq2.Append(tmpEl);
+					seq2.Append(tmpEl);
 					seq3.Append(tmpEl);
 				}
-				//seq1.Display();
+				cout << "START" << endl;
+				seq1.Display();
 
 				time_t start1, end1;
 				time(&start1);
 				seq1.InsertSort();
 				time(&end1);
+				cout << "END" << endl;
+				seq1.Display();
 
-				for (int i = 10; i >0; i--)
-				seq2.Append(i);				
-				cout << "GOVNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" << endl;
-				seq2.Display();
 				time_t start2, end2;
-				//time(&start2);
-				//seq2.MergeSort();
-				//seq2.mergeMeeeerge();
-			//	time(&end2);
-				cout << "AAAAAAAAAAAAA" << endl;
-				seq2.Display();
+				time(&start2);
+				MergeSort(&seq2);
+				time(&end2);
 
 				time_t start3, end3;
 				time(&start3);
@@ -491,74 +486,12 @@ void IntListSeq() {
 
 				time_t res1, res2, res3;
 				res1 = end1 - start1;
-			/*	res2 = end2 - start2;
+				res2 = end2 - start2;
 				res3 = end3 - start3;
 
-				if (res1 < res2)
-					if (res1 < res3)
-						cout << "Insert sort is better" << endl;
-					else
-						cout << "Shell is better" << endl;
-				else
-					if (res2 < res3)
-						cout << "Merge is better" << endl;
-					else
-						cout << "Shell is better" << endl;
-*/
-				cout << "Input the amount of elements. if you dont't want to work in this mode, press 0" << endl;
-				cin >> s;
-				while (!checkDataType(p))
-					cin >> s;
-				amount = atoi(s);
-			}
-//			for (int i = 0; i <C; i++) {
-//				srand(/*time(NULL)*/i * 5631);
-//				tmpEl = rand();
-//				seq1.Append(tmpEl);
-//				seq2.Append(tmpEl);
-//				seq3.Append(tmpEl);
-//			}
-//			//seq1.Display();
-//
-//			time_t start1, end1;
-//			time(&start1);
-//			seq1.InsertSort();
-//			time(&end1);
-//			
-//			/*for (int i = 0; i < C; i++)
-//				seq2.Append(i);
-//
-//*/
-//			cout << "GOVNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" << endl;
-//			seq2.Display();
-//			time_t start2, end2;
-//			time(&start2);
-//			seq2.MergeSort();
-//			time(&end2);
-//			cout << "AAAAAAAAAAAAA" << endl;
-//			seq2.Display();
-//		
-//
-//			time_t start3, end3;
-//			time(&start3);
-//			seq3.Shell(seq3.getArr(), seq3.getLength());
-//			time(&end3);
-//
-//			time_t res1, res2, res3;
-//			res1 = end1 - start1;
-//			res2 = end2 - start2;
-//			res3 = end3 - start3;
-//
-//			if (res1 < res2)
-//				if (res1 < res3)
-//					cout << "Insert sort is better" << endl;
-//				else
-//					cout << "Shell is better" << endl;
-//			else
-//				if (res2 < res3)
-//					cout << "Merge is better" << endl;
-//				else
-//					cout << "Shell is better" << endl;
+				cout << "Insert time = " << res1 << endl;
+				cout << "Merge time = " << res2 << endl;
+				cout << "shell time = " << res3 << endl;
 			break;
 		}
 		default:
@@ -950,7 +883,7 @@ void DoubleListSeq() {
 
 			time_t start2, end2;
 			time(&start2);
-			//seq2.MergeSort();
+			MergeSort(&seq2);
 			time(&end2);
 
 			time_t start3, end3;
@@ -963,16 +896,9 @@ void DoubleListSeq() {
 			res2 = end2 - start2;
 			res3 = end3 - start3;
 
-			if (res1 < res2)
-				if (res1 < res3)
-					cout << "Insert sort is better" << endl;
-				else
-					cout << "Shell is better" << endl;
-			else
-				if (res2 < res3)
-					cout << "Merge is better" << endl;
-				else
-					cout << "Shell is better" << endl;
+			cout << "Insert time = " << res1 << endl;
+			cout << "Merge time = " << res2 << endl;
+			cout << "shell time = " << res3 << endl;
 			break;
 		}
 		default:
