@@ -118,11 +118,11 @@ void Sequence<TElement>::InsertSort() {
 //void Sequence<TElement>::merge(int merged[], int lenD, int L[], int lenL, int R[], int lenR) {
 //	lenD = 0;
 //}
-
-template <typename TElement>
-void Sequence<TElement>::MergeSort(/*TElement *curArr, int lenD*/) {
-	int lenD = 0;
-}
+//
+//template <typename TElement>
+//void Sequence<TElement>::MergeSort(/*TElement *curArr, int lenD*/) {
+//	int lenD = 0;
+//}
 
 template <typename TElement>
 void Sequence<TElement>::Shell(TElement* arr, int size) {
@@ -149,5 +149,12 @@ void Sequence<TElement>::TestMergeSort(TElement *ideal) {
 template <typename TElement>
 void Sequence<TElement>::TestShellSort(TElement*) {
 	cout << "This is test for shell sort" << endl;
+}
+
+
+
+template <typename TElement>
+void Sequence <TElement>:: RemoveByIndex(int) {
+	cout << "AAAAAAAAAAAA" << endl;
 }
 #endif // !_TEML__I__

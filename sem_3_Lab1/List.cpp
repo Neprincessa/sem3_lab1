@@ -3,12 +3,13 @@
 #include "templ.h"
 #include "ExceptionsForList.h"
 #include <time.h>
+#include "mergeSort.h"
 #define C 1000
 TypeError CurrentError::getReason(int typeFunc, int start, int end, int len) const throw() {
 	//typeFunc = 1 - get, 2 - insert, 3 - getSub
 	//hoe in func
 	//indexex must be not--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	if (typeFunc == 1) {
+	if (typeFunc == 0) {
 		if (start < 1)
 			return NEGATIVE_INDEX;
 		if (start > len)
@@ -17,6 +18,9 @@ TypeError CurrentError::getReason(int typeFunc, int start, int end, int len) con
 			return NORMAL_STATE;
 	}
 	if (typeFunc == 2) {
+		if (len == 0)
+			return EMPTY_SEQUENCE;
+		else
 		if (start < 0)
 			return NEGATIVE_INDEX;
 		else
@@ -54,6 +58,10 @@ const char* CurrentError::ToString(TypeError v) {
 	case NORMAL_STATE:
 	{
 		return "NORMAL_STATE";
+		break;
+	}
+	case EMPTY_SEQUENCE: {
+		return "EMPTY_SEQUENCE";
 		break;
 	}
 	default:
@@ -362,8 +370,20 @@ void IntListSeq() {
 
 			testList.TestInsertSort(arr);
 			testList.Display();
-			testList.MergeSort();
+			//testList.MergeSort();
+			ListSequence<int> *tmp = new ListSequence<int>;
+			for (int i = 8; i >=0; i--)
+				tmp->Append(i);
+			tmp->Display();
+			cout << "MEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERGE" << endl;
+			////MergeSort(tmp);
+			for (int i = 0; i < 9; i++)
+				testList.Remove(arr[i]);
+			for (int i = 8; i >= 0; i--)
+				testList.Append(arr[i]);
+			MergeSort(&testList);
 			testList.TestMergeSort(arr);
+		//	tmp->Display();
 			testList.Display();
 
 			testList.Shell(testList.getArr(), testList.getLength());
@@ -462,7 +482,7 @@ void IntListSeq() {
 				time_t start2, end2;
 				//time(&start2);
 				//seq2.MergeSort();
-				seq2.mergeMeeeerge();
+				//seq2.mergeMeeeerge();
 			//	time(&end2);
 				cout << "AAAAAAAAAAAAA" << endl;
 				seq2.Display();
@@ -846,7 +866,7 @@ void DoubleListSeq() {
 			testList.TestInsertSort(arr);
 			testList.Display();
 
-			testList.MergeSort();
+			//testList.MergeSort();
 			testList.TestMergeSort(arr);
 			testList.Display();
 
@@ -925,7 +945,7 @@ void DoubleListSeq() {
 
 			time_t start2, end2;
 			time(&start2);
-			seq2.MergeSort();
+			//seq2.MergeSort();
 			time(&end2);
 
 			time_t start3, end3;

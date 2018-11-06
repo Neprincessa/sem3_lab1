@@ -368,7 +368,7 @@ void IntArrSeq() {
 
 			test.TestInsertSort(arr);
 			test.Display();
-			test.MergeSort();
+			//test.MergeSort();
 			test.Display();
 			test.TestMergeSort(arr);
 
@@ -454,7 +454,7 @@ void IntArrSeq() {
 
 			time_t start2, end2;
 			time(&start2);
-			seq2.MergeSort();
+			//seq2.MergeSort();
 			time(&end2);
 
 			time_t start3, end3;
@@ -778,7 +778,7 @@ void DoubleArrSeq() {
 			test.TestInsertSort(arr);
 			test.Display();
 
-			test.MergeSort();
+			//test.MergeSort();
 			test.TestMergeSort(arr);
 			test.Display();
 
@@ -874,7 +874,7 @@ void DoubleArrSeq() {
 			
 			time_t start2, end2;
 			time(&start2);
-			seq2.MergeSort();
+//			seq2.MergeSort();
 			time(&end2);
 
 			time_t start3, end3;

@@ -301,27 +301,38 @@ TElement* ArraySequence<TElement>:: getArr() {
 	return currentArr;
 }
 
+//template <typename TElement>
+//void ArraySequence<TElement>::MergeSort() {
+//	
+//	ListSequence<TElement> temp;
+//	for (int i = 0; i < currentAmount; i++) 
+//		temp.Append(currentArr[i]);
+//	cout << "FFFFFFFFFFFFFFFF" << endl;
+//	temp.Display();
+//
+//
+//	temp.MergeSort();
+//	cout << "RRRRRRR" << endl;
+//	temp.Display();
+//	for (int i = 0; i < currentAmount/*+1*/; i++) {
+//		TElement a = currentArr[i];
+//		TElement b = temp.Get(i /*+ 1*/);
+//		currentArr[i] = temp.Get(i + 1);
+//	}
+//		
+//}
 template <typename TElement>
-void ArraySequence<TElement>::MergeSort() {
-	
-	ListSequence<TElement> temp;
-	for (int i = 0; i < currentAmount; i++) 
-		temp.Append(currentArr[i]);
-	cout << "FFFFFFFFFFFFFFFF" << endl;
-	temp.Display();
-
-
-	temp.MergeSort();
-	cout << "RRRRRRR" << endl;
-	temp.Display();
-	for (int i = 0; i < currentAmount/*+1*/; i++) {
-		TElement a = currentArr[i];
-		TElement b = temp.Get(i /*+ 1*/);
-		currentArr[i] = temp.Get(i + 1);
+void ArraySequence<TElement>::RemoveByIndex(int index) {
+	this->currentAmount--;
+	TElement *newArray = new TElement[this->currentAmount];
+	for (int j = 0; j < index; j++) {
+		newArray[j] = currentArr[j];
 	}
-		
+	for (int k = index; k < this->currentAmount; k++) {
+		newArray[k] = currentArr[k + 1];
+	}
+	currentArr = newArray;
 }
-
 
 template <typename TElement>
 void ArraySequence<TElement>::Shell(TElement* arr, int size) {
@@ -378,7 +389,7 @@ void ArraySequence<TElement>::TestMergeSort(TElement *ideal) {
 	
 	int flag = 0;
 	int j = 0;
-	for (int i = currentAmount - 1; i >= 0; i--) {
+	for (int i = 0; i <currentAmount; i--) {
 		TElement a = ideal[i];
 		TElement b = currentArr[j];
 		if (ideal[i] == currentArr[j])

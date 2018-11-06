@@ -91,98 +91,114 @@ template <typename TElement>
 TElement ListSequence <TElement>::GetFirst() {
 	cout << "\n";
 	if (getIsEmpty() != 1) {
-		cout << "The first element is: ";
+		/*cout << "The first element is: ";
 		cout << head->data;
-		cout << "\n";
+		cout << "\n";*/
 		return head->data;
 	}
 	else {
 		cout << "You can't get the element from the emptry sequence" << endl;
-		cout << "\n";
+		//cout << "\n";
 		return -1;
 	}
 }
 
 template <typename TElement>
 TElement ListSequence<TElement>::GetLast() {
-	cout << "\n";
+//	cout << "\n";
 	if (getIsEmpty() != 1) {
-		cout << "The last element is: ";
+		/*cout << "The last element is: ";
 		cout << tail->data;
 		cout << "\n";
-		return tail->data;
+		*/return tail->data;
 	}
 	else {
 		cout << "You can't get the element from the emptry sequence" << endl;
-		cout << "\n";
+	//2	cout << "\n";
 		return -1;
 	}
 }
 
 template <typename TElement>
 TElement ListSequence<TElement>::Get(int index) {
-	char s[256];
-	char *p = s;
+	//char s[256];
+	//char *p = s;
 
-	int i = /*1*/0;
+	//int i = /*1*/0;
 
-	//to main!!!!!!!!!1
-	/*if (index<1 || index > amount) {
-		cout << "Fill in the index from 1 to ";
-		cout << amount << " ";
-		cin >> s;
-		while (!checkDataType(p))
-			cin >> s;
-		index = atoi(s);
-		while (index <1 || index > amount) {
-			cout << "Fill in the index from 1 to ";
-			cout << amount << " ";
-			cin >> s;
-			while (!checkDataType(p))
-				cin >> s;
-			index = atoi(s);
-		}
-	}*/
+	////to main!!!!!!!!!1
+	//*if (index<1 || index > amount) {
+	//	cout << "Fill in the index from 1 to ";
+	//	cout << amount << " ";
+	//	cin >> s;
+	//	while (!checkDataType(p))
+	//		cin >> s;
+	//	index = atoi(s);
+	//	while (index <1 || index > amount) {
+	//		cout << "Fill in the index from 1 to ";
+	//		cout << amount << " ";
+	//		cin >> s;
+	//		while (!checkDataType(p))
+	//			cin >> s;
+	//		index = atoi(s);
+	//	}
+	//}*/
 
-	if (getIsEmpty() != 1) {
+	//if (getIsEmpty() != 1) {
 
-		TElement result;
-		int flag = 0;
+	//	TElement result;
+	//	int flag = 0;
 
-		Node <TElement> *tmp = head;
-		while (tmp) {
-			if (i == index) {
-				result = tmp->data;
-				flag = 1;
-			}
-			tmp = tmp->Next;
-			i++;
-		}
+	//	Node <TElement> *tmp = head;
+	//	while (tmp) {
+	//		if (i == index) {
+	//			result = tmp->data;
+	//			flag = 1;
+	//		}
+	//		tmp = tmp->Next;
+	//		i++;
+	//	}
 
-		if (flag == 1) {
-			//cout << "\n";
-		//	cout << "The " << index << " element is: ";
-		//	cout << result << endl;
-			return result;
-		}
+	//	if (flag == 1) {
+	//		//cout << "\n";
+	//	//	cout << "The " << index << " element is: ";
+	//	//	cout << result << endl;
+	//		return result;
+	//	}
 
-		else {
-			cout << "The element wasn't found" << endl;
-			return -1;
-		}
-	}
-	else {
-		cout << "You can't get the element from the empty sequence" << endl;
+	//	else {
+	//		cout << "The element wasn't found" << endl;
+	//		return -1;
+	//	}
+	//}
+	//else {
+	//	cout << "You can't get the element from the empty sequence" << endl;
+	//	return -1;
+	//}
+
+	if (index < 0 || index > this->amount - 1) {
 		return -1;
+		//throw Error;/*ExceptionOutOfBounds(index);*/
+	}
+	if (index == 0) return GetFirst();
+	if (index == this->amount - 1) return GetLast();
+	else {
+		Node<TElement> *temp = new Node<TElement>;
+		temp->Next = head->Next;
+		while (index - 1) {
+			temp->Next = temp->Next->Next;
+			index--;
+		}
+		return temp->Next->data;
 	}
 }
 
 
 template <typename TElement>
 void ListSequence<TElement>::InsertAt(int index, TElement item) {
-	int i = 1;
+	/*int i = 1;
 	if (head != NULL) {
-		TElement *forNewList = new TElement[amount + 1];
+		TElement *forNewList = new TElement[amount + 2];
 		Node <TElement> *tmp = head;
 
 		while (i != index && tmp) {
@@ -210,6 +226,36 @@ void ListSequence<TElement>::InsertAt(int index, TElement item) {
 		temp->Prev = NULL;
 		amount++;
 		head = tail = temp;
+	}*/
+
+	if (this->isEmpty == 1) this->isEmpty = 0;
+	if (index == 0) Prepend(item);
+	else if (index == this->amount) Append(item);
+	else {
+		this->amount++;
+		Node<TElement> *temp = new Node<TElement>;
+		temp->data = item;
+		temp->Next = head->Next;
+		temp->Prev = head;
+		head->Next = temp;
+		if (index != 1) {
+			while (index - 1) {
+				Node<TElement> *r = temp->Next;
+				Node<TElement> *l = temp->Prev;
+
+				l->Next = r;
+				r->Prev = l;
+
+				temp->Next = r->Next;
+				temp->Prev = r;
+
+				index--;
+			}
+		}
+		if (temp->Next != NULL) {
+			temp->Next->Prev = temp;
+		}
+		temp->Prev->Next = temp;
 	}
 }
 
@@ -374,158 +420,158 @@ void ListSequence<TElement>::InsertSort() {
 	}
 }
 
-template <typename TElement>
-void ListSequence<TElement>:: MergeSort() {
-	sort(head);
-
-	// After the merge sort, tail pointer will be pointing to incorrect node
-	// Update the tail (*** Need a better way to update tail ***)
-	Node<TElement>* findTail = head;
-	while (findTail != nullptr) {
-		if (findTail->Next == nullptr) {
-			tail = findTail;
-		}
-
-		findTail = findTail->Next;
-	}
-}
-
-template <typename TElement>
-void ListSequence<TElement>::sort(Node<TElement>* &theHead) {
-	
-	Node<TElement>* a = nullptr;
-	Node<TElement>* b = nullptr;
-
-	// Base case
-	if (theHead == nullptr || theHead->Next == nullptr) {
-		return;
-	}
-
-	// Split the list in half
-	// For odd number of nodes, the extra node will be in the first half.
-	frontBackSplit(theHead, a, b);
-	// Recursively break the list down until the sublist contains 1 element (Sorted)
-	sort(a);
-	sort(b);
-
-	// Merge the two sorted lists
-	theHead = sortedMerge(a, b);
-}
-
-
-
-
-///**
-//*  Take 2 Node Pointers, each pointing at the head of sorted sublist,
-//*      merge them, and return the Node pointer to the head node of the merged list.
-//*  @param a Node* Pointer to the head of the first sorted list
-//*  @param b Node* Pointer to the head of the second sorted list
-//*  @return Node* head of the merged list (nullptr if both given nodes are empty)
-//*/
+//template <typename TElement>
+//void ListSequence<TElement>:: MergeSort() {
+//	sort(head);
 //
-
-
-template <typename TElement>
-Node<TElement>* ListSequence<TElement>::sortedMerge(Node<TElement>* a, Node<TElement>* b)
-{
-	Node<TElement>* headOfMerged;
-
-	// If one of the node is nullptr, return the other node
-	// No merging occurs this this case
-	if (a == nullptr) {
-		return b;
-	}
-	else if (b == nullptr) {
-		return a;
-	}
-
-	// First element in list, a, is less than the first element in b
-	if (a->data >=/*<=*/ b->data) {
-		headOfMerged = a;
-
-		while (b != nullptr) {
-			if (a->data /*>=*/<= b->data) {
-				if (a->Next == nullptr) {
-					a->Next = b;
-					b->Prev = a;
-					break;
-				}
-				a = a->Next;
-			}
-			else {
-				Node<TElement>* toAdd = b;
-				b = b->Next;
-				toAdd->Prev = a->Prev;
-				if (a->Prev!=NULL)
-					a->Prev->Next = toAdd;
-				toAdd->Next = a;
-				a->Prev = toAdd;
-			}
-		}
-	}
-	// First element in list, b, is less than the first element in a
-	else {
-		headOfMerged = b;
-
-		while (a != nullptr) {
-			if (b->data /*<=*/>= a->data) {
-				if (b->Next == nullptr) {
-					b->Next = a;
-					a->Prev = b;
-					break;
-				}
-				b = b->Next;
-			}
-			else {
-				Node<TElement>* toAdd = a;
-				a = a->Next;
-				toAdd->Prev = b->Prev;
-				b->Prev->Next = toAdd;
-				toAdd->Next = b;
-				b->Prev = toAdd;
-			}
-		}
-	}
-
-	return headOfMerged;
-}
-
-template <typename TElement>
-void ListSequence<TElement>::frontBackSplit(Node<TElement>* theHead, Node<TElement>* &frontRef, Node<TElement>* &backRef)
-{
-	Node<TElement>* fast;
-	Node<TElement>* slow;
-
-	// If the list is empty, both front and back points to null
-	// If there is only one element, front points to it and back points
-	//  to null.
-	if (theHead == nullptr || theHead->Next == nullptr) {
-		frontRef = theHead;
-		backRef = nullptr;
-	}
-	else {
-		slow = theHead;
-		fast = theHead->Next;
-
-		// Fast advances 2 nodes while slow advances 1 node
-		while (fast != nullptr) {
-			fast = fast->Next;
-
-			if (fast != nullptr) {
-				slow = slow->Next;
-				fast = fast->Next;
-			}
-		}
-
-		// slow should be pointing right before midpoint. Split at this point
-		frontRef = theHead;
-		backRef = slow->Next;
-
-		// Update the prev and next pointers
-		backRef->Prev = nullptr;
-		slow->Next = nullptr;
-	}
-}
+//	// After the merge sort, tail pointer will be pointing to incorrect node
+//	// Update the tail (*** Need a better way to update tail ***)
+//	Node<TElement>* findTail = head;
+//	while (findTail != nullptr) {
+//		if (findTail->Next == nullptr) {
+//			tail = findTail;
+//		}
+//
+//		findTail = findTail->Next;
+//	}
+//}
+//
+//template <typename TElement>
+//void ListSequence<TElement>::sort(Node<TElement>* &theHead) {
+//	
+//	Node<TElement>* a = nullptr;
+//	Node<TElement>* b = nullptr;
+//
+//	// Base case
+//	if (theHead == nullptr || theHead->Next == nullptr) {
+//		return;
+//	}
+//
+//	// Split the list in half
+//	// For odd number of nodes, the extra node will be in the first half.
+//	frontBackSplit(theHead, a, b);
+//	// Recursively break the list down until the sublist contains 1 element (Sorted)
+//	sort(a);
+//	sort(b);
+//
+//	// Merge the two sorted lists
+//	theHead = sortedMerge(a, b);
+//}
+//
+//
+//
+//
+/////**
+////*  Take 2 Node Pointers, each pointing at the head of sorted sublist,
+////*      merge them, and return the Node pointer to the head node of the merged list.
+////*  @param a Node* Pointer to the head of the first sorted list
+////*  @param b Node* Pointer to the head of the second sorted list
+////*  @return Node* head of the merged list (nullptr if both given nodes are empty)
+////*/
+////
+//
+//
+//template <typename TElement>
+//Node<TElement>* ListSequence<TElement>::sortedMerge(Node<TElement>* a, Node<TElement>* b)
+//{
+//	Node<TElement>* headOfMerged;
+//
+//	// If one of the node is nullptr, return the other node
+//	// No merging occurs this this case
+//	if (a == nullptr) {
+//		return b;
+//	}
+//	else if (b == nullptr) {
+//		return a;
+//	}
+//
+//	// First element in list, a, is less than the first element in b
+//	if (a->data >=/*<=*/ b->data) {
+//		headOfMerged = a;
+//
+//		while (b != nullptr) {
+//			if (a->data /*>=*/<= b->data) {
+//				if (a->Next == nullptr) {
+//					a->Next = b;
+//					b->Prev = a;
+//					break;
+//				}
+//				a = a->Next;
+//			}
+//			else {
+//				Node<TElement>* toAdd = b;
+//				b = b->Next;
+//				toAdd->Prev = a->Prev;
+//				if (a->Prev!=NULL)
+//					a->Prev->Next = toAdd;
+//				toAdd->Next = a;
+//				a->Prev = toAdd;
+//			}
+//		}
+//	}
+//	// First element in list, b, is less than the first element in a
+//	else {
+//		headOfMerged = b;
+//
+//		while (a != nullptr) {
+//			if (b->data /*<=*/>= a->data) {
+//				if (b->Next == nullptr) {
+//					b->Next = a;
+//					a->Prev = b;
+//					break;
+//				}
+//				b = b->Next;
+//			}
+//			else {
+//				Node<TElement>* toAdd = a;
+//				a = a->Next;
+//				toAdd->Prev = b->Prev;
+//				b->Prev->Next = toAdd;
+//				toAdd->Next = b;
+//				b->Prev = toAdd;
+//			}
+//		}
+//	}
+//
+//	return headOfMerged;
+//}
+//
+//template <typename TElement>
+//void ListSequence<TElement>::frontBackSplit(Node<TElement>* theHead, Node<TElement>* &frontRef, Node<TElement>* &backRef)
+//{
+//	Node<TElement>* fast;
+//	Node<TElement>* slow;
+//
+//	// If the list is empty, both front and back points to null
+//	// If there is only one element, front points to it and back points
+//	//  to null.
+//	if (theHead == nullptr || theHead->Next == nullptr) {
+//		frontRef = theHead;
+//		backRef = nullptr;
+//	}
+//	else {
+//		slow = theHead;
+//		fast = theHead->Next;
+//
+//		// Fast advances 2 nodes while slow advances 1 node
+//		while (fast != nullptr) {
+//			fast = fast->Next;
+//
+//			if (fast != nullptr) {
+//				slow = slow->Next;
+//				fast = fast->Next;
+//			}
+//		}
+//
+//		// slow should be pointing right before midpoint. Split at this point
+//		frontRef = theHead;
+//		backRef = slow->Next;
+//
+//		// Update the prev and next pointers
+//		backRef->Prev = nullptr;
+//		slow->Next = nullptr;
+//	}
+//}
 
 
 template <typename TElement>
@@ -640,39 +686,71 @@ void ListSequence<TElement>::TestShellSort(TElement *ideal) {
 		cout << "The shell sort works incorrectly" << endl;
 }
 
-template <typename TElement>
-void ListSequence<TElement>::mergeMeeeerge() {
-	mergesort(head);
-}
 
 template <typename TElement>
-Node<TElement>* ListSequence<TElement>::mergesort(Node<TElement> *&head) {
-	if (head == 0 || head->Next == 0) return head;
-	Node<TElement> *a = head, *b = head->Next;
-	while ((b != 0) && (b->Next != 0))
-	{
-		head = head->Next;
-		b = b->Next->Next;
+void ListSequence<TElement>::RemoveByIndex(int index) {
+	Node<TElement> *current = head;
+	Node<TElement> *temp = nullptr;
+	int i = 0;
+	if (index == 0) {
+		current = head->Next;
+		temp = head;
+		head = current;
+		//delete temp;
 	}
-	b = head->Next; head->Next = NULL;
-	return merge(mergesort(a), mergesort(b));
-}
-
-template<typename TElement>
-Node<TElement>* ListSequence<TElement>::merge(Node<TElement> *a, Node<TElement> *b) {
-	if (!a)
-		return b;
-	if (!b)
-		return b;
-	Node<TElement> *c = NULL;
-	if (a->data <= b->data) {
-		c = a;
-		c->Next = merge(a->Next, b);
+	else if (index == this->getLength() - 1) {
+		current = tail->Prev;
+		current->Next = NULL;
+		temp = tail;
+		tail = current;
 	}
 	else {
-		c = b;
-		c->Next = merge(a, b->Next);
+		while (current->Next != NULL && i != index) {
+			current = current->Next;
+			i++;
+		}
+		current = current->Prev;
+		temp = current->Next;
+		current->Next = temp->Next;
+		temp->Next->Prev = current;
 	}
-	return c;
+	this->amount--;
+	delete temp;
 }
+
+//template <typename TElement>
+//void ListSequence<TElement>::mergeMeeeerge() {
+//	mergesort(head);
+//}
+//
+//template <typename TElement>
+//Node<TElement>* ListSequence<TElement>::mergesort(Node<TElement> *&head) {
+//	if (head == 0 || head->Next == 0) return head;
+//	Node<TElement> *a = head, *b = head->Next;
+//	while ((b != 0) && (b->Next != 0))
+//	{
+//		head = head->Next;
+//		b = b->Next->Next;
+//	}
+//	b = head->Next; head->Next = NULL;
+//	return merge(mergesort(a), mergesort(b));
+//}
+//
+//template<typename TElement>
+//Node<TElement>* ListSequence<TElement>::merge(Node<TElement> *a, Node<TElement> *b) {
+//	if (!a)
+//		return b;
+//	if (!b)
+//		return b;
+//	Node<TElement> *c = NULL;
+//	if (a->data <= b->data) {
+//		c = a;
+//		c->Next = merge(a->Next, b);
+//	}
+//	else {
+//		c = b;
+//		c->Next = merge(a, b->Next);
+//	}
+//	return c;
+//}
 #endif // !_LST__T__

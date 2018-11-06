@@ -30,7 +30,7 @@ public:
 	virtual void Display();
 	virtual TElement* getArr();
 	virtual int chooseFunction(); // what to do with func
-
+	virtual void RemoveByIndex(int);
 								  //virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
 
 								  //-----------------Test-------------------//
@@ -50,7 +50,7 @@ public:
 
 	//--------------------------Sorts------------------------------------//
 	virtual void InsertSort();
-	virtual void MergeSort(/*TElement *curArr, int lenD*/);
+//	virtual void MergeSort(/*TElement *curArr, int lenD*/);
 	virtual void Shell(TElement*, int/*, int*/);
 };
 
@@ -96,9 +96,10 @@ public:
 	void TestInsertSort(TElement*);
 	void TestMergeSort(TElement*);
 	void TestShellSort(TElement*);
+	void RemoveByIndex(int);
 	//------------------------------Sorts---------------------//
 	void InsertSort();
-	void MergeSort(/*TElement *curArr, int lenD*/);
+	//void MergeSort(/*TElement *curArr, int lenD*/);
 	//void merge(int* merged, int lenD, int L[], int lenL, int R[], int lenR);
 	void Shell(TElement*, int);
 
@@ -106,7 +107,7 @@ public:
 
 
 template <typename TElement>
-class ListSequence : Sequence<TElement> {
+class ListSequence : public Sequence<TElement> {
 	int amount;
 	int isEmpty;
 	Node<TElement> *head;
@@ -144,11 +145,12 @@ public:
 	void TestInsertSort(TElement*);
 	void TestMergeSort(TElement*);
 	void TestShellSort(TElement*);
+	void RemoveByIndex(int);
 	//----------------------------Sorts-------------------//
 	void InsertSort();
-	void MergeSort();
+	//void MergeSort();
 	void Shell(TElement*, int);
-	void mergeMeeeerge();
+	//void mergeMeeeerge();
 	/*ListSequence *merge(Node<TElement> *a, Node <TELement> *b);*//*
 	{
 		if (!a)
@@ -169,26 +171,28 @@ public:
 		}
 		return c;
 	}*/
-private:
-	void sort(Node<TElement>* &theHead);//формирование списка для слияния 
-	Node<TElement>* sortedMerge(Node<TElement>* a, Node<TElement>* b); //слияние двух остортированных списков в один отсортированный
-	void frontBackSplit(Node<TElement>* theHead, Node<TElement>* &frontRef, Node<TElement>* &backRef); //разбиение на подсписки
-	Node<TElement> *mergesort(Node<TElement> *&head);
-	/*{
-		if (head == 0 || head->next == 0) return head;
-		Node<TElement> *a = head, *b = head->Next;
-		while ((b != 0) && (b->next != 0))
-		{
-			head = head->Next;
-			b = b->Next->Next;
-		}
-		b = head->Next; head->Next = NULL;
-		return merge(mergesort(a), mergesort(b));
-	}*/
-	//ListSequence<TElement>* merge(Node<TElement> *&a, Node <TELement> *&b);
-	Node<TElement>* merge(Node<TElement> *a, Node<TElement> *b);
+//private:
+//	void sort(Node<TElement>* &theHead);//формирование списка для слияния 
+//	Node<TElement>* sortedMerge(Node<TElement>* a, Node<TElement>* b); //слияние двух остортированных списков в один отсортированный
+//	void frontBackSplit(Node<TElement>* theHead, Node<TElement>* &frontRef, Node<TElement>* &backRef); //разбиение на подсписки
+//	Node<TElement> *mergesort(Node<TElement> *&head);
+//	/*{
+//		if (head == 0 || head->Next == 0) return head;
+//		Node<TElement> *a = head, *b = head->Next;
+//		while ((b != 0) && (b->Next != 0))
+//		{
+//			head = head->Next;
+//			b = b->Next->Next;
+//		}
+//		b = head->Next; head->Next = NULL;
+//		return merge(mergesort(a), mergesort(b));
+//	}*/
+//	//ListSequence<TElement>* merge(Node<TElement> *&a, Node <TELement> *&b);
+//	Node<TElement>* merge(Node<TElement> *a, Node<TElement> *b);
 };
-
+template <typename TElement>
+Sequence<TElement>* MergeSort(Sequence<TElement>* seq);
+#include "mergeSort.h"
 #include "templ_impl.h"
 #include "templ_impl_ArrSeq.h"
 #include "templ_impl_ListSeq.h"

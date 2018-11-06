@@ -10,7 +10,8 @@ enum TypeError
 	NEGATIVE_INDEX,
 	OVER_DIAPASON_INDEX,
 	INCORRECT_END_INDEX,
-	NORMAL_STATE
+	NORMAL_STATE,
+	EMPTY_SEQUENCE
 };
 
 class CurrentError : public std::exception
@@ -30,6 +31,8 @@ public:
 			return "INCORRECT_END_INDEX";
 		if (f == 3)
 			return "NORMAL_STATE";
+		if (f == 4)
+			return "EMPTY_SEQUENCE";
 	}
 }myEr;
 
