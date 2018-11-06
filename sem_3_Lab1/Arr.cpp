@@ -437,13 +437,23 @@ void IntArrSeq() {
 			ArraySequence<int> seq1;
 			ArraySequence<int> seq2;
 			ArraySequence<int> seq3;
-			for (int i = 0; i < N; i++) {
+
+			int amount;
+			cout << "Input the amount of elements. if you dont't want to work in this mode, press 0" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amount = atoi(s);
+			for (int i = 0; i < amount; i++) {
 				srand(/*time(NULL)*/i*5631);
 				tmpEl = rand() % 10000+1;
 				seq1.Append(tmpEl);
 				seq2.Append(tmpEl);
 				seq3.Append(tmpEl);
 			}
+
+			cout << "Data" << endl;
+			seq1.Display();
 
 			time_t start1, end1;
 			time(&start1);
@@ -454,7 +464,6 @@ void IntArrSeq() {
 			time(&start2);
 			MergeSort(&seq2);
 			time(&end2);
-			seq2.Display();
 
 			time_t start3, end3;
 			time(&start3);
@@ -466,16 +475,9 @@ void IntArrSeq() {
 			res2 = end2 - start2;
 			res3 = end3 - start3;
 
-			if (res1 < res2)
-				if (res1 < res3)
-					cout << "Insert sort is better" << endl;
-				else
-					cout << "Shell is better" << endl;
-			else
-				if (res2 < res3)
-					cout << "Merge is better" << endl;
-				else
-					cout << "Shell is better" << endl;
+			cout << "Insert time = " << res1 << endl;
+			cout << "Merge time = " << res2 << endl;
+			cout << "shell time = " << res3 << endl;
 			break;
 		}
 		default:
@@ -785,25 +787,13 @@ void DoubleArrSeq() {
 			test.TestMergeSort(arr);
 			test.Display();
 
-			/*for (int i = 0; i < 9; i++)
-				test.Remove(arr[i]);
-			for (int i = 8; i >= 0; i--)
-				test.Append(arr[i]);*/
 			ArraySequence<double> testDouble;
 			for (int i = 8; i >= 0; i--)
 				testDouble.Append(arr[i]);
 			testDouble.Shell(testDouble.getArr(), testDouble.getLength());
 			testDouble.Display();
 			testDouble.TestShellSort(arr);
-			//test.Append
-		/*	test.TestLength(0);
-			test.Append(23);
-			test.TestLength(1);
-			test.TestGetFirst(23);
-			test.TestGetLast(23);
-			test.TestGet(23, 0);
-			test.TestGet(23, 1);
-			test.TestGet(23, -1);*/
+		
 			break;
 		}
 		case 40: {
@@ -867,13 +857,24 @@ void DoubleArrSeq() {
 			ArraySequence<double> seq1;
 			ArraySequence<double> seq2;
 			ArraySequence<double> seq3;
-			for (int i = 0; i < N; i++) {
+
+			int amount;
+			cout << "Input the amount of elements. if you dont't want to work in this mode, press 0" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amount = atoi(s);
+
+			for (int i = 0; i < amount; i++) {
 				srand(/*time(NULL)*/i * 5631);
 				tmpEl = rand()%1000;
 				seq1.Append(tmpEl);
 				seq2.Append(tmpEl);
 				seq3.Append(tmpEl);
 			}
+
+			cout << "Data" << endl;
+			seq1.Display();
 
 			time_t start1, end1;
 			time(&start1);
@@ -895,16 +896,9 @@ void DoubleArrSeq() {
 			res2 = end2 - start2;
 			res3 = end3 - start3;
 
-			if (res1 < res2)
-				if (res1 < res3)
-					cout << "Insert sort is better" << endl;
-				else
-					cout << "Shell is better" << endl;
-			else
-				if (res2 < res3)
-					cout << "Merge is better" << endl;
-				else
-					cout << "Shell is better" << endl;
+			cout << "Insert time = " << res1 << endl;
+			cout << "Merge time = " << res2 << endl;
+			cout << "shell time = " << res3 << endl;
 			break;
 		}
 		default:

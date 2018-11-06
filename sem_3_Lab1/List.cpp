@@ -465,6 +465,9 @@ void IntListSeq() {
 					seq3.Append(tmpEl);
 				}
 			
+				cout << "Data" << endl;
+				seq1.Display();
+
 				time_t start1, end1;
 				time(&start1);
 				seq1.InsertSort();
@@ -862,7 +865,15 @@ void DoubleListSeq() {
 			ListSequence<double> seq1;
 			ListSequence<double> seq2;
 			ListSequence<double> seq3;
-			for (int i = 0; i <C; i++) {
+
+			int amount;
+			cout << "Input the amount of elements. if you dont't want to work in this mode, press 0" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			amount = atoi(s);
+
+			for (int i = 0; i <amount; i++) {
 				srand(/*time(NULL)*/i * 5631);
 				tmpEl = rand();
 				seq1.Append(tmpEl);
@@ -870,7 +881,8 @@ void DoubleListSeq() {
 				seq3.Append(tmpEl);
 			}
 
-			//seq1.Display();
+			cout << "Data" << endl;
+			seq1.Display();
 
 			time_t start1, end1;
 			time(&start1);
