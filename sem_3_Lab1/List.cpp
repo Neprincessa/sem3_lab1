@@ -464,16 +464,12 @@ void IntListSeq() {
 					seq2.Append(tmpEl);
 					seq3.Append(tmpEl);
 				}
-				cout << "START" << endl;
-				seq1.Display();
-
+			
 				time_t start1, end1;
 				time(&start1);
 				seq1.InsertSort();
 				time(&end1);
-				cout << "END" << endl;
-				seq1.Display();
-
+			
 				time_t start2, end2;
 				time(&start2);
 				MergeSort(&seq2);

@@ -72,7 +72,7 @@ int whatFunc() {
 	int typeOfFunction;
 
 	cout << "If you want to end work, press 0" << endl;
-	cout << "If you want to append element, press 1" << endl;
+	/*cout << "If you want to append element, press 1" << endl;
 	cout << "If you want to prepend element, press 2" << endl;
 	cout << "If you want to get amount of elements, press 3" << endl;
 	cout << "If you want to get first element, press 4" << endl;
@@ -82,10 +82,10 @@ int whatFunc() {
 	cout << "If you want to insert element at definite position, press 8" << endl;
 	cout << "If you want to remove element, press 9" << endl;
 	cout << "If you want tot get a sub sequence, press 10" << endl;
-	cout << "If you want to see the whole sequence, press 20" << endl;
+	cout << "If you want to see the whole sequence, press 20" << endl;*/
 	cout << "If you want to switch TEST mode, press 30" << endl;
-	cout << "If you want to set the sequence with random numbers, press 40" << endl;
-	cout << "If you want to add current amount of elements, press 50" << endl;
+	/*cout << "If you want to set the sequence with random numbers, press 40" << endl;
+	cout << "If you want to add current amount of elements, press 50" << endl;*/
 	cout << "If you want to compare the time of work of different sorts and compare ones, press 60" << endl;
 
 	char s[256];
@@ -94,8 +94,8 @@ int whatFunc() {
 	while (!checkDataType(p))
 		cin >> s;
 	typeOfFunction = atoi(s);
-	while (typeOfFunction < 0 || typeOfFunction > 10 && typeOfFunction != 20 && typeOfFunction != 30 && typeOfFunction != 40 && typeOfFunction != 50 && typeOfFunction != 60) {
-		cout << "Fill in the number from 0 to 10, 20,30, 40, 50 or 60" << endl;
+	while (typeOfFunction < 0 &&  typeOfFunction != 30 && typeOfFunction != 60) {
+		cout << "Fill in the number from 0, 30 or 60" << endl;
 		cin >> s;
 		while (!checkDataType(p))
 			cin >> s;
