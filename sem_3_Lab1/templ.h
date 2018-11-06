@@ -65,6 +65,7 @@ public:
 		currentAmount = 0;
 		isEmpty = 1;
 		currentArr = (TElement*)malloc(/*currentAmount*/1000000 * sizeof(TElement));
+		//currentArr = new TElement;
 		for (int i = 0; i < getLength(); i++)
 			currentArr[i] = 0;
 	}

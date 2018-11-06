@@ -445,8 +445,6 @@ void IntArrSeq() {
 				seq3.Append(tmpEl);
 			}
 
-			//seq1.Display();
-
 			time_t start1, end1;
 			time(&start1);
 			seq1.InsertSort();
@@ -454,8 +452,9 @@ void IntArrSeq() {
 
 			time_t start2, end2;
 			time(&start2);
-			//seq2.MergeSort();
+			MergeSort(&seq2);
 			time(&end2);
+			seq2.Display();
 
 			time_t start3, end3;
 			time(&start3);
@@ -753,38 +752,49 @@ void DoubleArrSeq() {
 		case 30: {
 			ArraySequence<double> test;
 			// {85,36,2,0,-89,4,-7,777,15}
-			test.Append(85.5);
-			test.Append(36.6);
-			test.Append(2.2);
+			test.Append(85);
+			test.Append(36);
+			test.Append(2);
 			test.Append(0);
 			test.Append(-89.3);
-			test.Append(4.7);
-			test.Append(-7.3);
-			test.Append(777.1);
-			test.Append(15.9);
+			test.Append(4);
+			test.Append(-7);
+			test.Append(777);
+			test.Append(15);
 
 			test.InsertSort();
 			double *arr = new double[9];
 			arr[0] = -89.3;
-			arr[1] = -7.3;
+			arr[1] = -7;
 			arr[2] = 0;
-			arr[3] = 2.2;
-			arr[4] = 4.7;
-			arr[5] = 15.9;
-			arr[6] = 36.6;
-			arr[7] = 85.5;
-			arr[8] = 777.1;
+			arr[3] = 2;
+			arr[4] = 4;
+			arr[5] = 15;
+			arr[6] = 36;
+			arr[7] = 85;
+			arr[8] = 777;
 
 			test.TestInsertSort(arr);
 			test.Display();
 
-			//test.MergeSort();
+			for (int i = 0; i < 9; i++)
+				test.Remove(arr[i]);
+			for (int i = 8; i >= 0; i--)
+				test.Append(arr[i]);
+			MergeSort(&test);
 			test.TestMergeSort(arr);
 			test.Display();
 
-			test.Shell(test.getArr(), test.getLength());
-			test.Display();
-			test.TestShellSort(arr);
+			/*for (int i = 0; i < 9; i++)
+				test.Remove(arr[i]);
+			for (int i = 8; i >= 0; i--)
+				test.Append(arr[i]);*/
+			ArraySequence<double> testDouble;
+			for (int i = 8; i >= 0; i--)
+				testDouble.Append(arr[i]);
+			testDouble.Shell(testDouble.getArr(), testDouble.getLength());
+			testDouble.Display();
+			testDouble.TestShellSort(arr);
 			//test.Append
 		/*	test.TestLength(0);
 			test.Append(23);
@@ -865,8 +875,6 @@ void DoubleArrSeq() {
 				seq3.Append(tmpEl);
 			}
 
-			//seq1.Display();
-
 			time_t start1, end1;
 			time(&start1);
 			seq1.InsertSort();
@@ -874,7 +882,7 @@ void DoubleArrSeq() {
 			
 			time_t start2, end2;
 			time(&start2);
-//			seq2.MergeSort();
+			MergeSort(&seq2);
 			time(&end2);
 
 			time_t start3, end3;
