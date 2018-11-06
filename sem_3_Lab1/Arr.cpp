@@ -7,7 +7,7 @@
 #include <ctime>
 #include <random>
 
-#define N 10000
+#define N 40
 Reason Exception::getReason(int typeFunc, int start, int end, int len) const throw() {
 	//typeFunc = 1 - get, 2 - insert, 3 - getSub
 	//hoe in func

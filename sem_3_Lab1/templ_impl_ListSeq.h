@@ -124,7 +124,7 @@ TElement ListSequence<TElement>::Get(int index) {
 	char s[256];
 	char *p = s;
 
-	int i = 1;
+	int i = /*1*/0;
 
 	//to main!!!!!!!!!1
 	/*if (index<1 || index > amount) {
@@ -404,7 +404,6 @@ void ListSequence<TElement>::sort(Node<TElement>* &theHead) {
 	// Split the list in half
 	// For odd number of nodes, the extra node will be in the first half.
 	frontBackSplit(theHead, a, b);
-
 	// Recursively break the list down until the sublist contains 1 element (Sorted)
 	sort(a);
 	sort(b);
@@ -639,5 +638,41 @@ void ListSequence<TElement>::TestShellSort(TElement *ideal) {
 		cout << "The shell sort works correctly" << endl;
 	else
 		cout << "The shell sort works incorrectly" << endl;
+}
+
+template <typename TElement>
+void ListSequence<TElement>::mergeMeeeerge() {
+	mergesort(head);
+}
+
+template <typename TElement>
+Node<TElement>* ListSequence<TElement>::mergesort(Node<TElement> *&head) {
+	if (head == 0 || head->Next == 0) return head;
+	Node<TElement> *a = head, *b = head->Next;
+	while ((b != 0) && (b->Next != 0))
+	{
+		head = head->Next;
+		b = b->Next->Next;
+	}
+	b = head->Next; head->Next = NULL;
+	return merge(mergesort(a), mergesort(b));
+}
+
+template<typename TElement>
+Node<TElement>* ListSequence<TElement>::merge(Node<TElement> *a, Node<TElement> *b) {
+	if (!a)
+		return b;
+	if (!b)
+		return b;
+	Node<TElement> *c = NULL;
+	if (a->data <= b->data) {
+		c = a;
+		c->Next = merge(a->Next, b);
+	}
+	else {
+		c = b;
+		c->Next = merge(a, b->Next);
+	}
+	return c;
 }
 #endif // !_LST__T__

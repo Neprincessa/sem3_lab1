@@ -2,7 +2,7 @@
 #define _ARR__T__
 
 using namespace std;
-
+#include <malloc.h>
 //----------------------------------------------------------ArraySequence-------------------------------------------//
 
 template <typename TElement>
@@ -18,17 +18,33 @@ void ArraySequence<TElement>::changeCondition(int condition) {
 template <typename TElement>
 void ArraySequence<TElement>::Append(TElement item) {
 	if (getLength() == 0) {
+		realloc(currentArr, 2*sizeof(TElement));
 		currentArr[0] = item;
 		currentAmount++;
 	}
 	else {
+	
 		TElement *newArr = new TElement[getLength() + 1];
 		for (int i = 0; i < getLength(); i++)
 			newArr[i] = currentArr[i];
 		newArr[getLength()] = item;
+		
+		TElement a = newArr[getLength()];
 		currentAmount++;
+			
+		/*cout << "Check 1" << endl;
+		for (int i = 0; i < currentAmount-1; i++)
+			cout << i + 1 << ") " << currentArr[i] << endl;*/
+
+		realloc(currentArr, (currentAmount + 2) * sizeof(TElement));
+
 		for (int i = 0; i < getLength(); i++)
 			currentArr[i] = newArr[i];
+		
+		/*cout << "Check 2" << endl;
+		for (int i = 0; i < currentAmount; i++)
+			cout << i + 1 << ") " << currentArr[i] << endl;
+		*/
 	}
 
 	changeCondition(0);
@@ -118,6 +134,7 @@ template <typename TElement>
 void ArraySequence<TElement>::Prepend(TElement item) {
 
 	if (getLength() == 0) {
+		realloc(currentArr, 2);
 		currentArr[0] = item;
 		currentAmount++;
 	}
@@ -152,6 +169,7 @@ void ArraySequence<TElement>::InsertAt(int index, TElement item) {
 		}
 		newArr[getLength()] = currentArr[getLength() - 1];
 		currentAmount++;
+		realloc(currentArr, currentAmount + 1);
 		for (int i = 0; i < getLength(); i++)
 			currentArr[i] = newArr[i];
 	}
@@ -287,12 +305,21 @@ template <typename TElement>
 void ArraySequence<TElement>::MergeSort() {
 	
 	ListSequence<TElement> temp;
-	for (int i = 0; i < this->currentAmount; i++) 
+	for (int i = 0; i < currentAmount; i++) 
 		temp.Append(currentArr[i]);
+	cout << "FFFFFFFFFFFFFFFF" << endl;
+	temp.Display();
+
 
 	temp.MergeSort();
-	for (int i = 0; i < currentAmount+1; i++) 
-		currentArr[i] = temp.Get(i+1);
+	cout << "RRRRRRR" << endl;
+	temp.Display();
+	for (int i = 0; i < currentAmount/*+1*/; i++) {
+		TElement a = currentArr[i];
+		TElement b = temp.Get(i /*+ 1*/);
+		currentArr[i] = temp.Get(i + 1);
+	}
+		
 }
 
 

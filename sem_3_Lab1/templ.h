@@ -59,11 +59,12 @@ template <typename TElement>
 class ArraySequence : public Sequence<TElement> {
 	int currentAmount;
 	int isEmpty;
-	TElement *currentArr = new TElement[10000]; //choose the type - for user interfce
+	TElement *currentArr/* = new TElement[10000]*/; //choose the type - for user interfce
 public:
 	ArraySequence() {
 		currentAmount = 0;
 		isEmpty = 1;
+		currentArr = (TElement*)malloc(/*currentAmount*/1000000 * sizeof(TElement));
 		for (int i = 0; i < getLength(); i++)
 			currentArr[i] = 0;
 	}
@@ -147,10 +148,45 @@ public:
 	void InsertSort();
 	void MergeSort();
 	void Shell(TElement*, int);
+	void mergeMeeeerge();
+	/*ListSequence *merge(Node<TElement> *a, Node <TELement> *b);*//*
+	{
+		if (!a)
+			return b;
+		if (!b)
+			return a;
+
+		Node<TElement>* c = 0;
+		if (a->data <= b->data)
+		{
+			c = a;
+			c->Next = merge(a->Next, b);
+		}
+		else
+		{
+			c = b;
+			c->Next = merge(a, b->Next);
+		}
+		return c;
+	}*/
 private:
 	void sort(Node<TElement>* &theHead);//формирование списка для слияния 
 	Node<TElement>* sortedMerge(Node<TElement>* a, Node<TElement>* b); //слияние двух остортированных списков в один отсортированный
 	void frontBackSplit(Node<TElement>* theHead, Node<TElement>* &frontRef, Node<TElement>* &backRef); //разбиение на подсписки
+	Node<TElement> *mergesort(Node<TElement> *&head);
+	/*{
+		if (head == 0 || head->next == 0) return head;
+		Node<TElement> *a = head, *b = head->Next;
+		while ((b != 0) && (b->next != 0))
+		{
+			head = head->Next;
+			b = b->Next->Next;
+		}
+		b = head->Next; head->Next = NULL;
+		return merge(mergesort(a), mergesort(b));
+	}*/
+	//ListSequence<TElement>* merge(Node<TElement> *&a, Node <TELement> *&b);
+	Node<TElement>* merge(Node<TElement> *a, Node<TElement> *b);
 };
 
 #include "templ_impl.h"

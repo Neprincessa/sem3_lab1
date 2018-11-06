@@ -6,7 +6,6 @@
 
 using namespace std;
 
-//распределение памяти
 
 int main() {
 
