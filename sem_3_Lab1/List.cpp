@@ -370,22 +370,19 @@ void IntListSeq() {
 
 			testList.TestInsertSort(arr);
 			testList.Display();
-			//testList.MergeSort();
-			ListSequence<int> *tmp = new ListSequence<int>;
-			for (int i = 8; i >=0; i--)
-				tmp->Append(i);
-			tmp->Display();
-			cout << "MEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERGE" << endl;
-			////MergeSort(tmp);
+
 			for (int i = 0; i < 9; i++)
 				testList.Remove(arr[i]);
 			for (int i = 8; i >= 0; i--)
 				testList.Append(arr[i]);
 			MergeSort(&testList);
 			testList.TestMergeSort(arr);
-		//	tmp->Display();
 			testList.Display();
 
+			for (int i = 0; i < 9; i++)
+				testList.Remove(arr[i]);
+			for (int i = 8; i >= 0; i--)
+				testList.Append(arr[i]);
 			testList.Shell(testList.getArr(), testList.getLength());
 			testList.Display();
 			testList.TestShellSort(arr);
@@ -854,22 +851,30 @@ void DoubleListSeq() {
 			testList.InsertSort();
 			double *arr = new double[9];
 			arr[0] = -89.3;
-			arr[1] = -7.3;
+			arr[1] = -7;
 			arr[2] = 0;
-			arr[3] = 2.2;
-			arr[4] = 4.7;
-			arr[5] = 15.9;
-			arr[6] = 36.6;
-			arr[7] = 85.5;
-			arr[8] = 777.1;
+			arr[3] = 2;
+			arr[4] = 4;
+			arr[5] = 15;
+			arr[6] = 36;
+			arr[7] = 85;
+			arr[8] = 777;
 
 			testList.TestInsertSort(arr);
 			testList.Display();
 
-			//testList.MergeSort();
+			for (int i = 0; i < 9; i++)
+				testList.Remove(arr[i]);
+			for (int i = 8; i >= 0; i--)
+				testList.Append(arr[i]);
+			MergeSort(&testList);
 			testList.TestMergeSort(arr);
 			testList.Display();
 
+			for (int i = 0; i < 9; i++)
+				testList.Remove(arr[i]);
+			for (int i = 8; i >= 0; i--)
+				testList.Append(arr[i]);
 			testList.Shell(testList.getArr(), testList.getLength());
 			testList.Display();
 			testList.TestShellSort(arr);

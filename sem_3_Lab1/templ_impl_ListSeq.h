@@ -89,7 +89,7 @@ int ListSequence<TElement>::getIsEmpty() {
 
 template <typename TElement>
 TElement ListSequence <TElement>::GetFirst() {
-	cout << "\n";
+	//cout << "\n";
 	if (getIsEmpty() != 1) {
 		/*cout << "The first element is: ";
 		cout << head->data;
@@ -655,11 +655,13 @@ template <typename TElement>
 void ListSequence<TElement>::TestMergeSort(TElement *ideal) {
 	Node<TElement> *tmp = head;
 	int flag = 0;
-	int i = amount-1;
+	int i = 0;
 	while (tmp) {
+		TElement id = ideal[i];
+		TElement cur = tmp->data;
 		if (tmp->data == ideal[i])
 			flag++;
-		i--;
+		i++;
 		tmp = tmp->Next;
 	}
 	if (flag == amount)
@@ -675,6 +677,8 @@ void ListSequence<TElement>::TestShellSort(TElement *ideal) {
 	int i =0;
 
 	while (tmp) {
+		TElement id = ideal[i];
+		TElement cur = tmp->data;
 		if (tmp->data == ideal[i])
 			flag++;
 		i++;
