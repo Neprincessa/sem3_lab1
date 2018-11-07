@@ -150,7 +150,7 @@ public:
 	//----------------------------Sorts-------------------//
 	void InsertSort();
 	//void MergeSort();
-	void Shell(TElement*, int);
+	void Shell(TElement*, int, int*);
 	//void mergeMeeeerge();
 	/*ListSequence *merge(Node<TElement> *a, Node <TELement> *b);*//*
 	{

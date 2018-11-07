@@ -590,28 +590,29 @@ TElement* ListSequence<TElement>::getArr() {
 }
 
 template <typename TElement>
-void ListSequence<TElement>::Shell(TElement *arr, int size) {
+void ListSequence<TElement>::Shell(TElement *arr, int size, int *steps) {
 	int count;
 	int d = size;
 	//d = d / 2;
 	//d = chooseStep(1,size);
-	d = chooseforFirstIteration_ShellSort(size);
-
+	//d = chooseforFirstIteration_ShellSort(size);
+	int k = 0;
 	//добавить если первое вхождение то флаг о, там фиксированное значение иначе на вход подается значение d
-	while (d>0) {
-		for (int i = 0; i<size - d; i++) {
+	while (/*d>0*/steps[k]) {
+		for (int i = 0; i<size - /*d*/steps[k]; i++) {
 			int j = i;
 			int a = arr[j];
-			int b = arr[j + d];
-			while (j >= 0 && arr[j]>arr[j + d]) {
+			int b = arr[j + /*d*/steps[k]];
+			while (j >= 0 && arr[j]>arr[j + /*d*/steps[k]]) {
 				count = arr[j];
-				arr[j] = arr[j + d];
-				arr[j + d] = count;
+				arr[j] = arr[j + /*d*/steps[k]];
+				arr[j + /*d*/steps[k]] = count;
 				j--;
 			}
 		}
 		//d = d / 2;
-		d = chooseStep(d, size);
+		k++;
+		//d = chooseStep(d, size);
 	}
 
 	d = 1;
