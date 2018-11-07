@@ -125,7 +125,7 @@ void Sequence<TElement>::InsertSort() {
 //}
 
 template <typename TElement>
-void Sequence<TElement>::Shell(TElement* arr, int size) {
+void Sequence<TElement>::Shell(TElement* arr, int size, int *len) {
 	cout << "This is shell sort" << endl;
 }
 
