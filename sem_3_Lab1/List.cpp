@@ -383,7 +383,7 @@ void IntListSeq() {
 				testList.Remove(arr[i]);
 			for (int i = 8; i >= 0; i--)
 				testList.Append(arr[i]);
-			testList.Shell(testList.getArr(), testList.getLength());
+		//	testList.Shell(testList.getArr(), testList.getLength());
 			testList.Display();
 			testList.TestShellSort(arr);
 
@@ -480,7 +480,7 @@ void IntListSeq() {
 
 				time_t start3, end3;
 				time(&start3);
-				seq3.Shell(seq3.getArr(), seq3.getLength());
+				//seq3.Shell(seq3.getArr(), seq3.getLength());
 				time(&end3);
 
 				time_t res1, res2, res3;
@@ -807,7 +807,7 @@ void DoubleListSeq() {
 				testList.Remove(arr[i]);
 			for (int i = 8; i >= 0; i--)
 				testList.Append(arr[i]);
-			testList.Shell(testList.getArr(), testList.getLength());
+			//testList.Shell(testList.getArr(), testList.getLength());
 			testList.Display();
 			testList.TestShellSort(arr);
 			break;
@@ -896,7 +896,7 @@ void DoubleListSeq() {
 
 			time_t start3, end3;
 			time(&start3);
-			seq3.Shell(seq3.getArr(), seq3.getLength());
+			//seq3.Shell(seq3.getArr(), seq3.getLength());
 			time(&end3);
 
 			time_t res1, res2, res3;

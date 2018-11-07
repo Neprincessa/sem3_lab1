@@ -371,10 +371,25 @@ void IntArrSeq() {
 			//test.MergeSort();
 			test.Display();
 			test.TestMergeSort(arr);
+			
+			ArraySequence<int> tmp;
+			for (int i = 8; i >= 0; i--)
+				tmp.Append(arr[i]);
+			cout << "Set the steps" << endl;
+			int *step = (int*)malloc(/*currentAmount*/1000000 * sizeof(int));
+			step[0] = chooseforFirstIteration_ShellSort(test.getLength());
+			int k = 1;
+			realloc(step, sizeof(int) * 2);
+			while (step[k - 1] != 0) {
 
-			test.Shell(test.getArr(), test.getLength());
-			test.Display();
-			test.TestShellSort(arr);
+				step[k] = chooseStep(step[k - 1], test.getLength());
+				k++;
+				realloc(step, sizeof(int)*(k + 2));
+			}
+			k--;
+			tmp.Shell(tmp.getArr(), tmp.getLength(), step);
+			tmp.Display();
+			tmp.TestShellSort(arr);
 			
 			break;
 		}
@@ -465,9 +480,22 @@ void IntArrSeq() {
 			MergeSort(&seq2);
 			time(&end2);
 
+			cout << "Set the steps" << endl;
+			int *arr = (int*)malloc(/*currentAmount*/1000000 * sizeof(int));
+			arr[0] = chooseforFirstIteration_ShellSort(seq3.getLength());
+			int k = 1;
+			realloc(arr, sizeof(int)*2);
+			while (arr[k-1] != 0) {
+				
+				arr[k] = chooseStep(arr[k - 1], seq3.getLength());
+				k++;
+				realloc(arr, sizeof(int)*(k + 2));
+			}
+			k--;
+
 			time_t start3, end3;
 			time(&start3);
-			seq3.Shell(seq3.getArr(), seq3.getLength());
+			seq3.Shell(seq3.getArr(), seq3.getLength(),arr);
 			time(&end3);
 
 			time_t res1, res2, res3;
@@ -790,7 +818,19 @@ void DoubleArrSeq() {
 			ArraySequence<double> testDouble;
 			for (int i = 8; i >= 0; i--)
 				testDouble.Append(arr[i]);
-			testDouble.Shell(testDouble.getArr(), testDouble.getLength());
+			cout << "Set the steps" << endl;
+			int *step = (int*)malloc(/*currentAmount*/1000000 * sizeof(int));
+			step[0] = chooseforFirstIteration_ShellSort(test.getLength());
+			int k = 1;
+			realloc(step, sizeof(int) * 2);
+			while (step[k - 1] != 0) {
+
+				step[k] = chooseStep(step[k - 1], test.getLength());
+				k++;
+				realloc(step, sizeof(int)*(k + 2));
+			}
+			k--;
+			testDouble.Shell(testDouble.getArr(), testDouble.getLength(), step);
 			testDouble.Display();
 			testDouble.TestShellSort(arr);
 		
@@ -886,9 +926,22 @@ void DoubleArrSeq() {
 			MergeSort(&seq2);
 			time(&end2);
 
+			cout << "Set the steps" << endl;
+			int *arr = (int*)malloc(/*currentAmount*/1000000 * sizeof(int));
+			arr[0] = chooseforFirstIteration_ShellSort(seq3.getLength());
+			int k = 1;
+			realloc(arr, sizeof(int) * 2);
+			while (arr[k - 1] != 0) {
+
+				arr[k] = chooseStep(arr[k - 1], seq3.getLength());
+				k++;
+				realloc(arr, sizeof(int)*(k + 2));
+			}
+			k--;
+
 			time_t start3, end3;
 			time(&start3);
-			seq3.Shell(seq3.getArr(), seq3.getLength());
+			seq3.Shell(seq3.getArr(), seq3.getLength(),arr);
 			time(&end3);
 
 			time_t res1, res2, res3;

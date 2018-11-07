@@ -102,7 +102,7 @@ public:
 	void InsertSort();
 	//void MergeSort(/*TElement *curArr, int lenD*/);
 	//void merge(int* merged, int lenD, int L[], int lenL, int R[], int lenR);
-	void Shell(TElement*, int);
+	void Shell(TElement*, int, int*);
 
 };
 

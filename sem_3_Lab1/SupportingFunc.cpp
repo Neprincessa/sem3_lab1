@@ -133,8 +133,8 @@ int chooseStep(int limit, int size) {
 	while (!checkDataType(p))
 		cin >> s;
 	int result = atoi(s);
-	while (result >= limit) {
-		cout << "Input the element less than " << limit <<endl;
+	while (result >= limit || result <0) {
+		cout << "Input the element less than " << limit <<" and bigger than 0"<<endl;
 		cin >> s;
 		while (!checkDataType(p))
 			cin >> s;

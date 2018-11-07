@@ -345,26 +345,27 @@ void ArraySequence<TElement>::RemoveByIndex(int index) {
 }
 
 template <typename TElement>
-void ArraySequence<TElement>::Shell(TElement* arr, int size) {
+void ArraySequence<TElement>::Shell(TElement* arr, int size, int *steps) {
 	int count;
 	int d = size;
 	//d = d / 2;
 	//d = chooseStep(1,size);
-	d = chooseforFirstIteration_ShellSort(size);
-
+//	d = chooseforFirstIteration_ShellSort(size);
+	int k = 0;
 	//добавить если первое вхождение то флаг о, там фиксированное значение иначе на вход подается значение d
-	while (d>0) {
-		for (int i = 0; i<size - d; i++) {
+	while (/*d>0*/steps[k]) {
+		for (int i = 0; i<size - /*d*/steps[k]; i++) {
 			int j = i;
-			while (j >= 0 && arr[j]>arr[j + d]) {
+			while (j >= 0 && arr[j]>arr[j + /*d*/steps[k]]) {
 				count = arr[j];
-				arr[j] = arr[j + d];
-				arr[j + d] = count;
+				arr[j] = arr[j + /*d*/steps[k]];
+				arr[j + /*d*/steps[k]] = count;
 				j--;
 			}
 		}
 		//d = d / 2;
-		d = chooseStep(d,size);
+		k++;
+		//d = chooseStep(d,size);
 	}
 
 	//safe step = 1 if user didn't input 1
