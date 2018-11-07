@@ -470,15 +470,15 @@ void IntArrSeq() {
 			cout << "Data" << endl;
 			seq1.Display();
 
-			time_t start1, end1;
-			time(&start1);
+			long int start1, end1;
+			start1 = clock();
 			seq1.InsertSort();
-			time(&end1);
+			end1 = clock();
 
-			time_t start2, end2;
-			time(&start2);
+			long int start2, end2;
+			start2 = clock();
 			MergeSort(&seq2);
-			time(&end2);
+			end2 = clock();
 
 			cout << "Set the steps" << endl;
 			int *arr = (int*)malloc(/*currentAmount*/1000000 * sizeof(int));
@@ -493,12 +493,12 @@ void IntArrSeq() {
 			}
 			k--;
 
-			time_t start3, end3;
-			time(&start3);
+			long int start3, end3;
+			start3 = clock();
 			seq3.Shell(seq3.getArr(), seq3.getLength(),arr);
-			time(&end3);
+			end3 = clock();
 
-			time_t res1, res2, res3;
+			long int res1, res2, res3;
 			res1 = end1 - start1;
 			res2 = end2 - start2;
 			res3 = end3 - start3;
@@ -916,15 +916,15 @@ void DoubleArrSeq() {
 			cout << "Data" << endl;
 			seq1.Display();
 
-			time_t start1, end1;
-			time(&start1);
+			long int start1, end1;
+			start1 = clock();
 			seq1.InsertSort();
-			time(&end1);
+			end1 = clock();
 			
-			time_t start2, end2;
-			time(&start2);
+			long int start2, end2;
+			start2 = clock();
 			MergeSort(&seq2);
-			time(&end2);
+			end2 = clock();
 
 			cout << "Set the steps" << endl;
 			int *arr = (int*)malloc(/*currentAmount*/1000000 * sizeof(int));
@@ -939,12 +939,12 @@ void DoubleArrSeq() {
 			}
 			k--;
 
-			time_t start3, end3;
-			time(&start3);
+			long int start3, end3;
+			start3 = clock();
 			seq3.Shell(seq3.getArr(), seq3.getLength(),arr);
-			time(&end3);
+			end3 = clock();
 
-			time_t res1, res2, res3;
+			long int res1, res2, res3;
 			res1 = end1 - start1;
 			res2 = end2 - start2;
 			res3 = end3 - start3;

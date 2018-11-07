@@ -153,26 +153,6 @@ void ArraySequence<TElement>::Prepend(TElement item) {
 
 template <typename TElement>
 void ArraySequence<TElement>::InsertAt(int index, TElement item) {
-	/*if (getIsEmpty() == 1) {
-		currentAmount = 1;
-		currentArr[0] = item;
-	}
-	else {
-		TElement *newArr = new TElement[getLength() + 1];
-		for (int i = 0; i < index - 1; i++)
-			newArr[i] = currentArr[i];
-		newArr[index - 1] = item;
-		int j = index - 1;
-		for (int i = index; i< getLength(); i++) {
-			newArr[i] = currentArr[j];
-			j++;
-		}
-		newArr[getLength()] = currentArr[getLength() - 1];
-		currentAmount++;
-		realloc(currentArr, currentAmount + 1);
-		for (int i = 0; i < getLength(); i++)
-			currentArr[i] = newArr[i];
-	}*/
 	this->currentAmount++;
 	TElement *newArray = new TElement[this->currentAmount];
 	for (int i = 0; i < index; i++) {
@@ -311,26 +291,6 @@ TElement* ArraySequence<TElement>:: getArr() {
 	return currentArr;
 }
 
-//template <typename TElement>
-//void ArraySequence<TElement>::MergeSort() {
-//	
-//	ListSequence<TElement> temp;
-//	for (int i = 0; i < currentAmount; i++) 
-//		temp.Append(currentArr[i]);
-//	cout << "FFFFFFFFFFFFFFFF" << endl;
-//	temp.Display();
-//
-//
-//	temp.MergeSort();
-//	cout << "RRRRRRR" << endl;
-//	temp.Display();
-//	for (int i = 0; i < currentAmount/*+1*/; i++) {
-//		TElement a = currentArr[i];
-//		TElement b = temp.Get(i /*+ 1*/);
-//		currentArr[i] = temp.Get(i + 1);
-//	}
-//		
-//}
 template <typename TElement>
 void ArraySequence<TElement>::RemoveByIndex(int index) {
 	this->currentAmount--;
