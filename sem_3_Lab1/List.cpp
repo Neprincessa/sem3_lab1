@@ -4,6 +4,7 @@
 #include "ExceptionsForList.h"
 #include <time.h>
 #include "mergeSort.h"
+#include "compare.h"
 #define C 1000
 TypeError CurrentError::getReason(int typeFunc, int start, int end, int len) const throw() {
 	//typeFunc = 1 - get, 2 - insert, 3 - getSub
@@ -519,6 +520,36 @@ void IntListSeq() {
 				cout << "shell time = " << res3 << endl;
 			break;
 		}
+		case 70: {
+			ListSequence<int> *seq1 = new ListSequence<int>;
+			ListSequence<int> *seq2 = new ListSequence<int>;
+			ListSequence<int> *seq3 = new ListSequence<int>;
+			for (int i = 0; i < 1000; i++) {
+				seq1->Append(i);
+				seq2->Append(i);
+				seq3->Append(i);
+			}
+			cout << "When from little to big" << endl;
+			compareSorts(seq1, seq2, seq3);
+
+			cout << "When from big to little" << endl;
+			for (int i = 999; i >= 0; i--) {
+				seq1->InsertAt(i, i);
+				seq2->InsertAt(i, i);
+				seq3->InsertAt(i, i);
+			}
+			compareSorts(seq1, seq2, seq3);
+
+
+			cout << "When they are equal" << endl;
+			for (int i = 0; i < 1000; i++) {
+				seq1->InsertAt(i, 212);
+				seq2->InsertAt(i, 212);
+				seq3->InsertAt(i, 212);
+			}
+			compareSorts(seq1, seq2, seq3);
+			break;
+		}
 		default:
 			break;
 		}
@@ -958,6 +989,36 @@ void DoubleListSeq() {
 			cout << "Insert time = " << res1 << endl;
 			cout << "Merge time = " << res2 << endl;
 			cout << "shell time = " << res3 << endl;
+			break;
+		}
+		case 70: {
+			ListSequence<double> *seq1 = new ListSequence<double>;
+			ListSequence<double> *seq2 = new ListSequence<double>;
+			ListSequence<double> *seq3 = new ListSequence<double>;
+			for (int i = 0; i < 1000; i++) {
+				seq1->Append(i);
+				seq2->Append(i);
+				seq3->Append(i);
+			}
+			cout << "When from little to big" << endl;
+			compareSorts(seq1, seq2, seq3);
+
+			cout << "When from big to little" << endl;
+			for (int i = 999; i >= 0; i--) {
+				seq1->InsertAt(i, i);
+				seq2->InsertAt(i, i);
+				seq3->InsertAt(i, i);
+			}
+			compareSorts(seq1, seq2, seq3);
+
+
+			cout << "When they are equal" << endl;
+			for (int i = 0; i < 1000; i++) {
+				seq1->InsertAt(i, 212);
+				seq2->InsertAt(i, 212);
+				seq3->InsertAt(i, 212);
+			}
+			compareSorts(seq1, seq2, seq3);
 			break;
 		}
 		default:
