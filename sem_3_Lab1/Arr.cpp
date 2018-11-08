@@ -513,7 +513,7 @@ void IntArrSeq() {
 			ArraySequence<int> *seq1 = new ArraySequence<int>;
 			ArraySequence<int> *seq2 = new ArraySequence<int>;
 			ArraySequence<int> *seq3 = new ArraySequence<int>;
-			for (int i = 0; i < 1000; i++) {
+			for (int i = 0; i < 1001; i++) {
 				seq1->Append(i);
 				seq2->Append(i);
 				seq3->Append(i);
@@ -522,16 +522,17 @@ void IntArrSeq() {
 			compareSorts(seq1, seq2, seq3);
 
 			cout << "When from big to little" << endl;
-			for (int i = 999; i >=0; i--) {
-				seq1->InsertAt(i,i);
-				seq2->InsertAt(i, i);
-				seq3->InsertAt(i, i);
+			int j = 0;
+			for (int i = 1000; i >=0; i--) {
+				seq1->InsertAt(j,i);
+				seq2->InsertAt(j, i);
+				seq3->InsertAt(j, i);
+				j++;
 			}
 			compareSorts(seq1, seq2, seq3);
 
-		
 			cout << "When they are equal" << endl;
-			for (int i = 0; i < 1000; i++) {
+			for (int i = 0; i < 1001; i++) {
 				seq1->InsertAt(i, 212);
 				seq2->InsertAt(i, 212);
 				seq3->InsertAt(i, 212);

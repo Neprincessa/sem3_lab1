@@ -275,6 +275,7 @@ void ArraySequence<TElement>::InsertSort() {
 	int	item; // индекс предыдущего элемента
 	for (int counter = 1; counter < currentAmount; counter++)
 	{
+		TElement a = currentArr[counter];
 		temp = currentArr[counter]; // инициализируем временную переменную текущим значением элемента массива
 		item = counter - 1; // запоминаем индекс предыдущего элемента массива
 		while (item >= 0 && currentArr[item] > temp) // пока индекс не равен 0 и предыдущий элемент массива больше текущего
